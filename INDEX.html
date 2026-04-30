@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENA SPA PRO</title>
+
+    <!-- Fuentes e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Variables CSS para facilitar el cambio de colores */
+        :root {
+            --primary-color: #39A900;
+            --primary-dark: #2e7d32;
+            --bg-light: #f4fdf6;
+            --text-color: #333;
+            --white: #fff;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reseteo general */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-color);
+        }
+
+        /* Cabecera y Navegación */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .logo img {
+            width: 50px;
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--text-color);
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav button:hover, nav button.active-btn {
+            color: var(--primary-color);
+            background-color: #e8f5e9;
+        }
+
+        /* Secciones */
+        section {
+            display: none;
+            padding: 60px 20px;
+            animation: fadeIn 0.5s ease-in-out;
+            min-height: 80vh;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        /* Tarjetas */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(57, 169, 0, 0.2);
+        }
+
+        .card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #e8f5e9;
+        }
+
+        .card i {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .card:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Acordeón */
+        .accordion {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            background: #e8f5e9;
+            border-radius: 10px;
+            margin-top: 15px;
+            opacity: 0;
+        }
+
+        .accordion.open {
+            max-height: 200px;
+            padding: 15px;
+            opacity: 1;
+        }
+
+        .accordion p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        /* Buscador de Aprendices */
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 45px 15px 20px;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(57,169,0,0.3);
+        }
+
+        .search-container i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        /* Formulario y Footer */
+        form {
+            max-width: 500px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        input, textarea {
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        button.submit {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        button.submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer i {
+            margin: 0 10px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        footer i:hover {
+            color: #e8f5e9;
+            transform: scale(1.2);
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo" onclick="showSection('inicio')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/SENA_Colombia_logo.svg" alt="SENA Logo">
+        <h3>SENA</h3>
+    </div>
+    <nav>
+        <ul id="nav-links">
+            <li><button class="nav-btn active-btn" onclick="showSection('inicio', this)">Inicio</button></li>
+            <li><button class="nav-btn" onclick="showSection('areas', this)">Áreas</button></li>
+            <li><button class="nav-btn" onclick="showSection('docentes', this)">Docentes</button></li>
+            <li><button class="nav-btn" onclick="showSection('aprendices', this)">Aprendices</button></li>
+            <li><button class="nav-btn" onclick="showSection('contacto', this)">Contacto</button></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="inicio" class="active">
+    <div class="hero">
+        <h1>Formación Tecnológica SENA</h1>
+        <p>Especialistas en infraestructura IT, conectividad y administración de sistemas.</p>
+        <a class="btn" onclick="showSection('areas', document.querySelectorAll('.nav-btn')[1])">Explorar Áreas</a>
+    </div>
+</section>
+
+<section id="areas">
+    <h2 style="text-align:center">Áreas de Formación</h2>
+    <div class="cards">
+        <div class="card" onclick="toggleAccordion(this)">
+            <i class="fa-brands fa-windows"></i>
+            <h3>Windows Server</h3>
+            <p>Administración y despliegue de servicios</p>
+            <div class="accordion">
+                <p>Configuración en Windows Server 2022.</p>
+                <p>Servicios: Active Directory, DHCP, DNS, VPN, CA y virtualización con Hyper-V.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleAccordion(this)">
+            <i class="fa-brands fa-linux"></i>
+            <h3>Linux</h3>
+            <p>Gestión de servidores y línea de comandos</p>
+            <div class="accordion">
+                <p>Administración de distribuciones como CentOS y Kali.</p>
+                <p>Automatización con Bash, configuración SSH, FTP y gestión de permisos.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleAccordion(this)">
+            <i class="fa-solid fa-network-wired"></i>
+            <h3>Cisco Networking</h3>
+            <p>Infraestructura y protocolos de red</p>
+            <div class="accordion">
+                <p>Preparación para certificaciones como CCNA 3.</p>
+                <p>VLANs, OSPF, Switching, NTP, Syslog y resolución de problemas de red.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="docentes">
+    <h2 style="text-align:center">Plantel Docente</h2>
+    <div class="cards">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="https://picsum.photos/id/1011/200" alt="William Santamaría">
+            <h3>William Santamaría</h3>
+            <p>Instructor de Redes</p>
+            <div class="accordion">
+                <p>Amplia experiencia en infraestructura.</p>
+                <p><b>Especialidades:</b> Cisco, Routing, Switching.</p>
+                <p><b>Monitores:</b> Camilo Villada, Maycol Hoyos.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="https://picsum.photos/id/1012/200" alt="Juan Agredo">
+            <h3>Juan Agredo</h3>
+            <p>Instructor de Sistemas Windows</p>
+            <div class="accordion">
+                <p>Experto en ecosistemas Microsoft.</p>
+                <p><b>Especialidades:</b> Active Directory, DNS, Políticas de Seguridad.</p>
+                <p><b>Monitores:</b> Daniel Arboleda, Celis.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="https://picsum.photos/id/1005/200" alt="Diego Mapallo">
+            <h3>Diego Mapallo</h3>
+            <p>Instructor Linux y Automatización</p>
+            <div class="accordion">
+                <p>Especialista en código abierto.</p>
+                <p><b>Especialidades:</b> Servidores Linux, Scripting en Bash.</p>
+                <p><b>Monitores:</b> Certuche, Garay.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="aprendices">
+    <h2 style="text-align:center">Nuestros Aprendices</h2>
+    
+    <div class="search-container">
+        <input type="text" id="buscador-aprendices" placeholder="Buscar por nombre...">
+        <i class="fa-solid fa-search"></i>
+    </div>
+
+    <div class="cards" id="contenedor-aprendices"></div>
+</section>
+
+<section id="contacto">
+    <h2 style="text-align:center">Contáctanos</h2>
+    <form id="formulario-contacto">
+        <input type="text" placeholder="Nombre completo" required>
+        <input type="email" placeholder="Correo electrónico" required>
+        <textarea rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <button type="submit" class="submit">Enviar Mensaje</button>
+    </form>
+</section>
+
+<footer>
+    <p>Proyecto académico SENA - Desarrollo Tecnológico</p>
+    <div style="margin-top: 15px;">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-github"></i>
+    </div>
+</footer>
+
+<script>
+    // --- NAVEGACIÓN Y SECCIONES ---
+    function showSection(id, btnElement = null) {
+        // Ocultar todas las secciones
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        
+        // Mostrar la sección seleccionada
+        document.getElementById(id).classList.add('active');
+        
+        // Actualizar el botón activo en el menú
+        if (btnElement) {
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-btn'));
+            btnElement.classList.add('active-btn');
+        }
+        
+        // Scroll suave hacia arriba
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // --- ACORDEONES ANIMADOS ---
+    function toggleAccordion(cardElement) {
+        const accordion = cardElement.querySelector('.accordion');
+        
+        // Si ya está abierto, lo cerramos
+        if (accordion.classList.contains('open')) {
+            accordion.classList.remove('open');
+        } else {
+            // (Opcional) Cerrar los demás acordeones en la misma vista
+            const allAccordions = cardElement.parentElement.querySelectorAll('.accordion');
+            allAccordions.forEach(acc => acc.classList.remove('open'));
+            
+            // Abrir el clickeado
+            accordion.classList.add('open');
+        }
+    }
+
+    // --- GENERACIÓN Y FILTRADO DE APRENDICES ---
+
+   const estudiantes = [
+    { nombre: "Cristian Camilo Villada Muriel", foto: "pag/img/ca.png"} ,
+    { nombre: "Maycol Stiven Hoyos Hurtado", foto: "pag/img/may.png" },
+    { nombre: "Daniel Felipe Arboleda Mera", foto: "pag/img/toru.png" },
+    { nombre: "Jhoan Stiven Loboa Cambindo", foto: "pag/img/lob.png" },
+    { nombre: "Jhoan Sebastián Certuche Vélez", foto: "pag/img/tuche.png" },
+    { nombre: "Andrés Felipe Garay Monrroy", foto: "pag/img/g2.png" },
+    { nombre: "Julián David Lugo Acevedo", foto: "pag/img/lugo.png" },
+    { nombre: "Franklin Harby Torres Montaño", foto: "pag/img/harby.png" },
+    { nombre: "Johan Sebastián Celis Vargas", foto: "img/johan_celis.jpg" },
+    { nombre: "Josep Andrés Ramírez Conde", foto: "pag/img/and.png" },
+    { nombre: "Juan Diego Banquez Díaz", foto: "pag/img/diego.png" },
+    { nombre: "Carlos Gabriel loaiza Daza", foto: "pag/img/lo.png" },
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cont = document.getElementById('contenedor-aprendices');
+    const buscador = document.getElementById('buscador-aprendices');
+
+    // Función para renderizar los aprendices
+    function renderizarAprendices(lista) {
+        if (!cont) return; // Seguridad por si el ID no existe
+        cont.innerHTML = ''; 
+        
+        if (lista.length === 0) {
+            cont.innerHTML = '<p style="text-align:center; grid-column: 1 / -1; color:#888;">No se encontraron aprendices.</p>';
+            return;
+        }
+
+        lista.forEach((estudiante) => {
+            let div = document.createElement('div');
+            div.className = 'card';
+            
+            // IMPORTANTE: Aquí usamos estudiante.foto directamente
+            div.innerHTML = `
+                <img src="${estudiante.foto}" alt="Foto de ${estudiante.nombre}" 
+                     style="width: 100%; height: 200px; object-fit: cover;"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/200?text=Error+Imagen';">
+                <h3>${estudiante.nombre}</h3>
+                <p>Aprendiz IT</p>
+                <div class='accordion'>
+                    <p>Especialización técnica en infraestructura.</p>
+                    <p>Responsable, proactivo y excelente trabajo en equipo.</p>
+                </div>
+            `;
+            
+            // Si tienes la función toggleAccordion definida, esto funcionará
+            div.onclick = function() { 
+                if (typeof toggleAccordion === "function") {
+                    toggleAccordion(this); 
+                }
+            };
+            cont.appendChild(div);
+        });
+    }
+
+    // Renderizado inicial
+    renderizarAprendices(estudiantes);
+
+    // Evento de búsqueda corregido
+    buscador.addEventListener('keyup', (e) => {
+        const texto = e.target.value.toLowerCase();
+        
+        // Filtramos buscando en la propiedad .nombre del objeto
+        const estudiantesFiltrados = estudiantes.filter(est => 
+            est.nombre.toLowerCase().includes(texto)
+        );
+        
+        renderizarAprendices(estudiantesFiltrados);
+    });
+});
+    
+    // --- MANEJO DEL FORMULARIO ---
+    document.getElementById('formulario-contacto').addEventListener('submit', e => {
+        e.preventDefault();
+        
+        // Simulación de envío
+        const btn = e.target.querySelector('button');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+        
+        setTimeout(() => {
+            alert('¡Mensaje enviado exitosamente!');
+            e.target.reset();
+            btn.innerHTML = originalText;
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>
+
