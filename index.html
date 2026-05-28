@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SENA GRD2-53</title>
 
-    <!-- Fuentes e Iconos -->
     <link rel="icon" href="logo-del-sena-verde.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -134,16 +133,14 @@
         }
 
         /* Tarjetas */
-  /* Tarjetas */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .card {
@@ -315,20 +312,17 @@
 
 <header>
     <div class="logo" onclick="showSection('inicio')">
-        <img src="logo-del-sena-verde.png"SENA Logo">
+        <img src="logo-del-sena-verde.png" alt="SENA Logo">
         <h3>SENA</h3>
     </div>
     <nav>
-       <nav>
-    <ul id="nav-links">
-        <li><button class="nav-btn active-btn" onclick="showSection('inicio', this)">Inicio</button></li>
-        <li><button class="nav-btn" onclick="showSection('areas', this)">Áreas</button></li>
-        <li><button class="nav-btn" onclick="showSection('docentes', this)">Docentes</button></li>
-        <li><button class="nav-btn" onclick="showSection('aprendices', this)">Aprendices</button></li>
-        <li><button class="nav-btn" onclick="showSection('Drive', this)">Galería de fotos</button></li>
-        <li><button class="nav-btn" onclick="showSection('contacto', this)">Contacto</button></li>
-    </ul>
-</nav>
+        <ul id="nav-links">
+            <li><button class="nav-btn active-btn" onclick="showSection('inicio', this)">Inicio</button></li>
+            <li><button class="nav-btn" onclick="showSection('areas', this)">Áreas</button></li>
+            <li><button class="nav-btn" onclick="showSection('docentes', this)">Docentes</button></li>
+            <li><button class="nav-btn" onclick="showSection('aprendices', this)">Aprendices</button></li>
+            <li><button class="nav-btn" onclick="showSection('Drive', this)">Galería de fotos</button></li>
+            <li><button class="nav-btn" onclick="showSection('contacto', this)">Contacto</button></li>
         </ul>
     </nav>
 </header>
@@ -385,8 +379,6 @@
             <p>Instructor de Windows</p>
             <div class="accordion">
                 <p>Líder estratégico encargado de supervisar la implementación de servicios de infraestructura en entornos Windows Server. Coordina el despliegue de roles críticos como Directorio Activo, servicios de escritorio remoto y políticas de almacenamiento, asegurando la integridad y disponibilidad de los recursos corporativos del proyecto.</p>
-                <p><b></b></p>
-                <p><b></b></p>
             </div>
         </div>
 
@@ -396,8 +388,6 @@
             <p>Instructor de Linux</p>
             <div class="accordion">
                 <p>Líder técnico encargado de supervisar la implementación y estabilidad de los servidores Open Source. Coordina la configuración de servicios críticos como correo, impresión y autenticación, asegurando el alto rendimiento y la correcta integración de todas las plataformas Linux dentro del proyecto.</p>
-                <p><b></b> </p>
-                <p><b></p>
             </div>
         </div>
 
@@ -407,16 +397,12 @@
             <p>Instructor de cisco</p>
             <div class="accordion">
                 <p>Arquitecto de red responsable de dirigir la configuración de la infraestructura de networking. Supervisa la implementación de protocolos de enrutamiento avanzado, seguridad perimetral, alta disponibilidad y servicios de telefonía IP, garantizando una conectividad robusta y eficiente entre todos los nodos de la red.</p>
-                <p><b></b></p>
-                <p><b></b></p>
             </div>
         </div>
-      </div>
+    </div>
 </section>
 
-
 <section id="aprendices">
-
     <h2 style="text-align:center">Nuestros Aprendices</h2>
     
     <div class="search-container">
@@ -424,151 +410,127 @@
         <i class="fa-solid fa-search"></i>
     </div>
 
- <div class="cards" >
-
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="cam1.png" alt="Cristian Camilo Villada Muriel">
-        <h3>Cristian Camilo Villada Muriel</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+    <div class="cards">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="cam1.png" alt="Cristian Camilo Villada Muriel">
+            <h3>Cristian Camilo Villada Muriel</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Experto en enrutamiento. Responsable de IPv6, alta disponibilidad (HSRP) y administración de servidores web seguros.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="may.png" alt="Maycol Stiven Hoyos Hurtado">
-        <h3>Maycol Stiven Hoyos Hurtado</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
-                <p>Líder de infraestructura Cisco. Experto en conectividad segura mediante VPN IKEv2 y administración de servicios críticos en Linux como telefonía IP y RAID</p>
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="may.png" alt="Maycol Stiven Hoyos Hurtado">
+            <h3>Maycol Stiven Hoyos Hurtado</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
+                <p>Líder de infraestructura Cisco. Experto en conectividad segura mediante VPN IKEv2 y administración de servicios críticos en Linux como telefonía IP y RAID.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="toru.png" alt="Daniel Felipe Arboleda Mera">
-        <h3>Daniel Felipe Arboleda Mera</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="toru.png" alt="Daniel Felipe Arboleda Mera">
+            <h3>Daniel Felipe Arboleda Mera</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Especialista en despliegue. Responsable de WDS, seguridad de puertos y administración de identidades en OpenLDAP.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="lobo.png" alt="Jhoan Stiven Loboa Cambindo">
-        <h3>Jhoan Stiven Loboa Cambindo</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
-                <p>Líder de Ciberseguridad del proyecto. Especialista en asegurar entornos Windows mediante Entidades Certificadoras (CA) y HTTPS</p>
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="lobo.png" alt="Jhoan Stiven Loboa Cambindo">
+            <h3>Jhoan Stiven Loboa Cambindo</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
+                <p>Líder de Ciberseguridad del proyecto. Especialista en asegurar entornos Windows mediante Entidades Certificadoras (CA) y HTTPS.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="banquez.png" alt="Juan Diego Banquez Diaz">
-        <h3>Juan Diego Banquez Diaz</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="banquez.png" alt="Juan Diego Banquez Diaz">
+            <h3>Juan Diego Banquez Diaz</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Líder Linux. Encargado de la coordinación de servidores Open Source, servicios de correo y monitoreo Syslog.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="celis.png" alt="Jhoan Sebastian Celis">
-        <h3>Jhoan Sebastian Celis</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="celis.png" alt="Jhoan Sebastian Celis">
+            <h3>Jhoan Sebastian Celis</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Administrador de seguridad. Encargado de réplica de Directorio Activo, seguridad en switches y gestión de OpenSSL.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="garay.png" alt="Andres Felipe Garay Monrroy">
-        <h3>Andres Felipe Garay Monrroy</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="garay.png" alt="Andres Felipe Garay Monrroy">
+            <h3>Andres Felipe Garay Monrroy</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Integrador de sistemas. Especialista en Directorio Activo, autenticación RADIUS y transición de túneles IPv6.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="tuche.png" alt="Jhoan Sbastian Certuche Velez">
-        <h3>Jhoan Sbastian Certuche Velez</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="tuche.png" alt="Jhoan Sbastian Certuche Velez">
+            <h3>Jhoan Sbastian Certuche Velez</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Especialista en servicios de red. Encargado de políticas de acceso NPS, telefonía IP y gestión de DHCP/DNS.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="harby.png" alt="Harby Torres">
-        <h3>Harby Torres</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="harby.png" alt="Harby Torres">
+            <h3>Harby Torres</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Administrador de red. Responsable de servicios DNS, correo, almacenamiento RAID y servidores de impresión.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="julian.png" alt="Julian David Lugo Acevedo">
-        <h3>Julian David Lugo Acevedo</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="julian.png" alt="Julian David Lugo Acevedo">
+            <h3>Julian David Lugo Acevedo</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Gestor de infraestructura. Responsable de redes inalámbricas, protocolos AAA y documentación de direccionamiento.</p>
             </div>
         </div>
-    </div>
 
-    <div class="card" onclick="toggleAccordion(this)">
-        <img src="andres.png" alt="Joshep Andres Ramirez Conde">
-        <h3>Joshep Andres Ramirez Conde </h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="andres.png" alt="Joshep Andres Ramirez Conde">
+            <h3>Joshep Andres Ramirez Conde</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Líder Windows. Experto en servicios de escritorio remoto (RDS) y optimización de enlaces Ether-channel.</p>
             </div>
         </div>
-    </div>
-         <div class="card" onclick="toggleAccordion(this)">
-        <img src="carlos.png" alt="Carlos Gabriel Loaiza Daza">
-        <h3>Carlos Gabriel Loaiza Daza</h3>
-        <p class="subtitle">Aprendiz </p>
-        <div class="accordion">
-            <div class="accordion-content">
+
+        <div class="card" onclick="toggleAccordion(this)">
+            <img src="carlos.png" alt="Carlos Gabriel Loaiza Daza">
+            <h3>Carlos Gabriel Loaiza Daza</h3>
+            <p class="subtitle">Aprendiz</p>
+            <div class="accordion">
                 <p>Mentor de infraestructura encargado de la supervisión técnica, soporte en solución de fallas (troubleshooting) y validación de protocolos de red y servidores.</p>
             </div>
         </div>
     </div>
-<section id="Galería de fotos">
+</section>
+
+<section id="Drive">
     <h2 style="text-align:center">Galería de Evidencias</h2>
     
     <div class="cards">
-        
         <div class="card" onclick="toggleAccordion(this)">
             <img src="foto1.png" alt="Evidencia 1">
             <h3>Data Center Core</h3>
             <p class="subtitle">Infraestructura</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Montaje físico y cableado estructurado del clúster principal de servidores corporativos.</p>
-                </div>
+                <p>Montaje físico y cableado estructurado del clúster principal de servidores corporativos.</p>
             </div>
         </div>
 
@@ -577,9 +539,7 @@
             <h3>Switches de Distribución</h3>
             <p class="subtitle">Networking</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Organización de patch cords y configuración de enlaces troncales de VLANs dinámicas.</p>
-                </div>
+                <p>Organización de patch cords y configuración de enlaces troncales de VLANs dinámicas.</p>
             </div>
         </div>
 
@@ -588,9 +548,7 @@
             <h3>Consola Linux</h3>
             <p class="subtitle">Servidores Open Source</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Despliegue y hardening de servicios web seguros HTTPS con llaves criptográficas SSL en Debian 13.</p>
-                </div>
+                <p>Despliegue y hardening de servicios web seguros HTTPS con llaves criptográficas SSL en Debian 13.</p>
             </div>
         </div>
 
@@ -599,9 +557,7 @@
             <h3>Windows Server 2022</h3>
             <p class="subtitle">Sistemas Operativos</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Administración lógica de identidades, políticas de grupo (GPO) y Active Directory.</p>
-                </div>
+                <p>Administración lógica de identidades, políticas de grupo (GPO) y Active Directory.</p>
             </div>
         </div>
 
@@ -610,9 +566,7 @@
             <h3>Alta Disponibilidad</h3>
             <p class="subtitle">Cisco Redes</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Configuración y pruebas de tolerancia a fallos en el backbone de red usando el protocolo HSRP.</p>
-                </div>
+                <p>Configuración y pruebas de tolerancia a fallos en el backbone de red usando el protocolo HSRP.</p>
             </div>
         </div>
 
@@ -621,9 +575,7 @@
             <h3>Seguridad Perimetral</h3>
             <p class="subtitle">Ciberseguridad</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Implementación de defensas en switches de acceso contra ataques dirigidos con DHCP Snooping.</p>
-                </div>
+                <p>Implementación de defensas en switches de acceso contra ataques dirigidos con DHCP Snooping.</p>
             </div>
         </div>
 
@@ -632,9 +584,7 @@
             <h3>Enrutamiento OSPF</h3>
             <p class="subtitle">Cisco Redes</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Mapeo de rutas dinámicas y convergencia de enlaces en topologías multiárea.</p>
-                </div>
+                <p>Mapeo de rutas dinámicas y convergencia de enlaces en topologías multiárea.</p>
             </div>
         </div>
 
@@ -643,9 +593,7 @@
             <h3>Servicios TFTP/FTPS</h3>
             <p class="subtitle">Servidores Linux</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Configuración de transferencia segura de archivos para el respaldo de imágenes de IOS Cisco.</p>
-                </div>
+                <p>Configuración de transferencia segura de archivos para el respaldo de imágenes de IOS Cisco.</p>
             </div>
         </div>
 
@@ -654,9 +602,7 @@
             <h3>Direccionamiento IPv6</h3>
             <p class="subtitle">Infraestructura</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Asignación y planeación de subredes globales mediante direccionamiento estático y DHCPv6.</p>
-                </div>
+                <p>Asignación y planeación de subredes globales mediante direccionamiento estático y DHCPv6.</p>
             </div>
         </div>
 
@@ -665,14 +611,12 @@
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
             <div class="accordion">
-                <div class="accordion-content">
-                    <p>Configuración y despliegue de arreglos de almacenamiento redundante RAID para servicios críticos.</p>
-                </div>
+                <p>Configuración y despliegue de arreglos de almacenamiento redundante RAID para servicios críticos.</p>
             </div>
         </div>
-</section>
     </div>
 </section>
+
 <section id="contacto">
     <h2 style="text-align:center">Contáctanos</h2>
     <form id="formulario-contacto">
@@ -689,15 +633,12 @@
         <a href="https://www.facebook.com/SENA" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;">
             <i class="fab fa-facebook"></i>
         </a>
-
         <a href="https://www.instagram.com/senacomunica" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;">
             <i class="fab fa-instagram"></i>
         </a>
-
         <a href="https://www.linkedin.com/company/sena" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;">
             <i class="fab fa-linkedin"></i>
         </a>
-
         <a href="#" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;">
             <i class="fab fa-github"></i>
         </a>
@@ -707,118 +648,63 @@
 <script>
     // --- NAVEGACIÓN Y SECCIONES ---
     function showSection(id, btnElement = null) {
-        // Ocultar todas las secciones
         document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
         
-        // Mostrar la sección seleccionada
-        document.getElementById(id).classList.add('active');
+        const targetSection = document.getElementById(id);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
         
-        // Actualizar el botón activo en el menú
         if (btnElement) {
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-btn'));
             btnElement.classList.add('active-btn');
         }
-        
-        // Scroll suave hacia arriba
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // --- ACORDEONES ANIMADOS ---
     function toggleAccordion(cardElement) {
         const accordion = cardElement.querySelector('.accordion');
+        if (!accordion) return;
         
-        // Si ya está abierto, lo cerramos
         if (accordion.classList.contains('open')) {
             accordion.classList.remove('open');
         } else {
-            // (Opcional) Cerrar los demás acordeones en la misma vista
             const allAccordions = cardElement.parentElement.querySelectorAll('.accordion');
             allAccordions.forEach(acc => acc.classList.remove('open'));
-            
-            // Abrir el clickeado
             accordion.classList.add('open');
         }
     }
 
-    // --- GENERACIÓN Y FILTRADO DE APRENDICES ---
+    // --- FILTRADO DE APRENDICES (DOM FIJO) ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const buscador = document.getElementById('buscador-aprendices');
+        // Filtra las tarjetas específicas dentro de la sección de aprendices únicamente
+        const tarjetasAprendices = document.querySelectorAll('#aprendices .card');
 
-   const estudiantes = [
-    { nombre: "Cristian Camilo Villada Muriel", foto: ""} ,
-    { nombre: "Maycol Stiven Hoyos Hurtado", foto: "may.png" },
-    { nombre: "Daniel Felipe Arboleda Mera", foto: "toru.png" },
-    { nombre: "Jhoan Stiven Loboa Cambindo", foto: "lobo.png" },
-    { nombre: "Jhoan Sebastián Certuche Vélez", foto: "tuche.png" },
-    { nombre: "Andrés Felipe Garay Monrroy", foto: "garay.png" },
-    { nombre: "Julián David Lugo Acevedo", foto: "julian.png" },
-    { nombre: "Franklin Harby Torres Montaño", foto: "harby.png" },
-    { nombre: "Johan Sebastián Celis Vargas", foto: "celis.png" },
-    { nombre: "Josep Andrés Ramírez Conde", foto: "andres.png" },
-    { nombre: "Juan Diego Banquez Díaz", foto: "banquez.png" },
-    { nombre: "Carlos Gabriel loaiza Daza", foto: "carlos.png" },
-];
+        if (buscador) {
+            buscador.addEventListener('input', () => {
+                const filtro = buscador.value.toLowerCase().trim();
 
-document.addEventListener("DOMContentLoaded", () => {
-    const cont = document.getElementById('contenedor-aprendices');
-    const buscador = document.getElementById('buscador-aprendices');
-
-    // Función para renderizar los aprendices
-    function renderizarAprendices(lista) {
-        if (!cont) return; // Seguridad por si el ID no existe
-        cont.innerHTML = ''; 
-        
-        if (lista.length === 0) {
-            cont.innerHTML = '<p style="text-align:center; grid-column: 1 / -1; color:#888;">No se encontraron aprendices.</p>';
-            return;
+                tarjetasAprendices.forEach(tarjeta => {
+                    const titleElement = tarjeta.querySelector('h3');
+                    if (titleElement) {
+                        const nombre = titleElement.textContent.toLowerCase();
+                        if (nombre.includes(filtro)) {
+                            tarjeta.style.display = ""; 
+                        } else {
+                            tarjeta.style.display = "none"; 
+                        }
+                    }
+                });
+            });
         }
-
-        lista.forEach((estudiante) => {
-            let div = document.createElement('div');
-            div.className = 'card';
-            
-            // IMPORTANTE: Aquí usamos estudiante.foto directamente
-            div.innerHTML = `
-                <img src="${estudiante.foto}" alt="Foto de ${estudiante.nombre}" 
-                     style="width: 100%; height: 200px; object-fit: cover;"
-                     onerror="this.onerror=null; this.src='https://via.placeholder.com/200?text=Error+Imagen';">
-                <h3>${estudiante.nombre}</h3>
-                <p>Aprendiz IT</p>
-                <div class='accordion'>
-                    <p>Especialización técnica en infraestructura.</p>
-                    <p>Responsable, proactivo y excelente trabajo en equipo.</p>
-                </div>
-            `;
-            
-            // Si tienes la función toggleAccordion definida, esto funcionará
-            div.onclick = function() { 
-                if (typeof toggleAccordion === "function") {
-                    toggleAccordion(this); 
-                }
-            };
-            cont.appendChild(div);
-        });
-    }
-
-    // Renderizado inicial
-    renderizarAprendices(estudiantes);
-
-    // Evento de búsqueda corregido
-    buscador.addEventListener('keyup', (e) => {
-        const texto = e.target.value.toLowerCase();
-        
-        // Filtramos buscando en la propiedad .nombre del objeto
-        const estudiantesFiltrados = estudiantes.filter(est => 
-            est.nombre.toLowerCase().includes(texto)
-        );
-        
-        renderizarAprendices(estudiantesFiltrados);
     });
-});
     
     // --- MANEJO DEL FORMULARIO ---
     document.getElementById('formulario-contacto').addEventListener('submit', e => {
         e.preventDefault();
         
-        // Simulación de envío
         const btn = e.target.querySelector('button');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
@@ -830,35 +716,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     });
 </script>
-
-
-
-
-
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const buscador = document.getElementById('buscador-aprendices');
-    const tarjetas = document.querySelectorAll('.card');
-
-    buscador.addEventListener('input', () => {
-        const filtro = buscador.value.toLowerCase();
-
-        tarjetas.forEach(tarjeta => {
-            // Buscamos el texto dentro del h3 de cada tarjeta
-            const nombre = tarjeta.querySelector('h3').textContent.toLowerCase();
-
-            if (nombre.includes(filtro)) {
-                tarjeta.style.display = ""; // Muestra la tarjeta si coincide
-            } else {
-                tarjeta.style.display = "none"; // La oculta si no coincide
-            }
-        });
-    });
-});
-
-
-
-</script>
 </body>
 </html>
-
