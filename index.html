@@ -324,8 +324,8 @@
         <li><button class="nav-btn active-btn" onclick="showSection('inicio', this)">Inicio</button></li>
         <li><button class="nav-btn" onclick="showSection('areas', this)">Áreas</button></li>
         <li><button class="nav-btn" onclick="showSection('docentes', this)">Docentes</button></li>
-        <li><button class="nav-btn" onclick="showSection('Drive', this)">Galería de fotos</button></li>
         <li><button class="nav-btn" onclick="showSection('aprendices', this)">Aprendices</button></li>
+        <li><button class="nav-btn" onclick="showSection('Drive', this)">Galería de fotos</button></li>
         <li><button class="nav-btn" onclick="showSection('contacto', this)">Contacto</button></li>
     </ul>
 </nav>
@@ -556,7 +556,21 @@
             </div>
         </div>
     </div>
-<div class="galeria-item">
+<section id="Drive">
+    <h2 style="text-align:center; margin-bottom: 10px;">Galería de Infraestructura IT</h2>
+    <p style="text-align:center; color:#666; margin-bottom: 30px;">Registro visual de las implementaciones, laboratorios y servicios desplegados.</p>
+    
+    <div class="galeria-grid">
+        
+        <div class="galeria-item">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600" alt="Servidores Blade en Data Center">
+            <div class="galeria-info">
+                <h3>Data Center Core</h3>
+                <p>Montaje físico y cableado estructurado del clúster principal de servidores corporativos.</p>
+            </div>
+        </div>
+
+        <div class="galeria-item">
             <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600" alt="Cableado Estructurado y Switches">
             <div class="galeria-info">
                 <h3>Switches de Distribución</h3>
@@ -565,7 +579,8 @@
         </div>
 
         </div> </section> ```
-        </div>
+
+Al dejarlo así, cuando en el menú hagas clic en **Galería de fotos**, el código llamará a `showSection('Drive', this)`, abrirá esta sección directamente y verás tus imágenes sin problemas.
 
     </div>
 </section>
