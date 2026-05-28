@@ -319,14 +319,16 @@
         <h3>SENA</h3>
     </div>
     <nav>
-        <ul id="nav-links">
-            <li><button class="nav-btn active-btn" onclick="showSection('inicio', this)">Inicio</button></li>
-            <li><button class="nav-btn" onclick="showSection('areas', this)">Áreas</button></li>
-            <li><button class="nav-btn" onclick="showSection('docentes', this)">Docentes</button></li>
-            <li><button class="nav-btn" onclick="showSection('aprendices', this)">Aprendices</button></li>
-           <li><button class="nav-btn" onclick="showSection('contacto', this)">Galeria de fotos</button></li>
-           <li><button class="nav-btn" onclick="showSection('contacto', this)">Drive</button></li>
-            <li><button class="nav-btn" onclick="showSection('contacto', this)">Contacto</button></li>
+       <nav>
+    <ul id="nav-links">
+        <li><button class="nav-btn active-btn" onclick="showSection('inicio', this)">Inicio</button></li>
+        <li><button class="nav-btn" onclick="showSection('areas', this)">Áreas</button></li>
+        <li><button class="nav-btn" onclick="showSection('docentes', this)">Docentes</button></li>
+        <li><button class="nav-btn" onclick="showSection('Drive', this)">Galería de fotos</button></li>
+        <li><button class="nav-btn" onclick="showSection('aprendices', this)">Aprendices</button></li>
+        <li><button class="nav-btn" onclick="showSection('contacto', this)">Contacto</button></li>
+    </ul>
+</nav>
         </ul>
     </nav>
 </header>
@@ -554,33 +556,7 @@
             </div>
         </div>
     </div>
-<section id="Galeria de fotos">
-    <h2 style="text-align:center">Áreas de Formación</h2>
-    <div class="cards">
-        <div class="card" onclick="toggleAccordion(this)">
-            <i class="fa-brands fa-windows"></i>
-            <h3>Windows Server</h3>
-            <p>Administración y despliegue de servicios</p>
-            <div class="accordion">
-                <p>Configuración en Windows Server 2022.</p>
-                <p>Servicios: Active Directory, DHCP, DNS, VPN, CA y virtualización con Hyper-V.</p>
-            </div>
-        </div>
-    <section id="Drive">
-    <h2 style="text-align:center; margin-bottom: 10px;">Galería de Infraestructura IT</h2>
-    <p style="text-align:center; color:#666; margin-bottom: 30px;">Registro visual de las implementaciones, laboratorios y servicios desplegados.</p>
-    
-    <div class="Galeria de fotos">
-        
-        <div class="galeria-item">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600" alt="Servidores Blade en Data Center">
-            <div class="galeria-info">
-                <h3>Data Center Core</h3>
-                <p>Montaje físico y cableado estructurado del clúster principal de servidores corporativos.</p>
-            </div>
-        </div>
-
-        <div class="galeria-item">
+<div class="galeria-item">
             <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600" alt="Cableado Estructurado y Switches">
             <div class="galeria-info">
                 <h3>Switches de Distribución</h3>
@@ -588,68 +564,7 @@
             </div>
         </div>
 
-        <div class="galeria-item">
-            <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=600" alt="Consola de Administración Linux">
-            <div class="galeria-info">
-                <h3>Consola Linux (Debian)</h3>
-                <p>Despliegue y hardening de servicios web seguros HTTPS con llaves criptográficas SSL.</p>
-            </div>
-        </div>
-
-        <div class="galeria-item">
-            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600" alt="Monitoreo de red">
-            <div class="galeria-info">
-                <h3>Monitoreo Activo</h3>
-                <p>Seguimiento de tráfico de red y gestión de logs centralizados mediante Syslog y alertas.</p>
-            </div>
-        </div>
-
-        <div class="galeria-item">
-            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=600" alt="Consola de Windows Server">
-            <div class="galeria-info">
-                <h3>Windows Server 2022</h3>
-                <p>Administración lógicas de identidades, políticas de grupo (GPO) y Active Directory.</p>
-            </div>
-        </div>
-
-        <div class="galeria-item">
-            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600" alt="Pantalla de Ciberseguridad">
-            <div class="galeria-info">
-                <h3>Seguridad Perimetral</h3>
-                <p>Auditoría de puertos, defensas contra ataques DHCP Snooping y mitigación de riesgos.</p>
-            </div>
-        </div>
-
-        <div class="galeria-item">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600" alt="Laboratorio de pruebas virtuales">
-            <div class="galeria-info">
-                <h3>Entornos Virtualizados</h3>
-                <p>Despliegue de máquinas virtuales de pruebas escalables utilizando Hyper-V.</p>
-            </div>
-        </div>
-
-        <div class="galeria-item">
-            <img src="julian.png" alt="Puesto de Trabajo y Redes">
-            <div class="galeria-info">
-                <h3>Estaciones de Diagnóstico</h3>
-                <p>Pruebas de conectividad extremo a extremo usando IPv6 nativo y enrutamiento OSPF.</p>
-            </div>
-        </div>
-
-        <div class="galeria-item">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600" alt="Servidor de Almacenamiento NAS">
-            <div class="galeria-info">
-                <h3>Sistemas de Respaldo</h3>
-                <p>Configuración de arreglos de almacenamiento redundante RAID para evitar la pérdida de datos.</p>
-            </div>
-        </div>
-
-        <div class="galeria-item">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600" alt="Diagrama de Redes">
-            <div class="galeria-info">
-                <h3>Topología Lógica</h3>
-                <p>Documentación y mapeo de alta disponibilidad mediante el protocolo redundante HSRP.</p>
-            </div>
+        </div> </section> ```
         </div>
 
     </div>
