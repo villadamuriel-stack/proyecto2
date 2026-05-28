@@ -306,6 +306,31 @@
                 justify-content: center;
             }
         }
+
+        /* --- NUEVO AJUSTE EXCLUSIVO PARA LA GALERÍA DE FOTOS (RECTANGULARES Y GRANDES) --- */
+        #Drive .card {
+            padding: 0 !important;
+            overflow: hidden !important;
+        }
+
+        #Drive .card img {
+            width: 100% !important;
+            height: 180px !important;
+            border-radius: 0 !important;
+            border: none !important;
+            object-fit: cover !important;
+            margin-bottom: 0 !important;
+        }
+
+        #Drive .card h3 {
+            margin-top: 15px !important;
+            padding: 0 15px !important;
+        }
+
+        #Drive .card .subtitle {
+            margin-bottom: 15px !important;
+            padding: 0 15px !important;
+        }
     </style>
 </head>
 <body>
@@ -396,7 +421,7 @@
             <h3>Diego Fernando Rodriguez Mapallo</h3>
             <p>Instructor de cisco</p>
             <div class="accordion">
-                <p>Arquitecto de red responsable de dirigir la configuración de la infraestructura de networking. Supervisa la implementación de protocolos de enrutamiento avanzado, seguridad perimetral, alta disponibilidad y servicios de telefonía IP, garantizando una conectividad robusta y eficiente entre todos los nodos de la red.</p>
+                <p>Arquitecto de red responsable de dirigir la configuración de la infraestructura de networking. Supervisa la implementación de protocolos de enrutamiento avanzado, seguridad perimetral, alta disponibilidad and servicios de telefonía IP, garantizando una conectividad robusta y eficiente entre todos los nodos de la red.</p>
             </div>
         </div>
     </div>
@@ -410,13 +435,15 @@
         <i class="fa-solid fa-search"></i>
     </div>
 
-    <div class="cards">
+    <div class="cards" id="contenedor-aprendices">
         <div class="card" onclick="toggleAccordion(this)">
             <img src="cam1.png" alt="Cristian Camilo Villada Muriel">
             <h3>Cristian Camilo Villada Muriel</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Experto en enrutamiento. Responsable de IPv6, alta disponibilidad (HSRP) y administración de servidores web seguros.</p>
+                <div class="accordion-content">
+                    <p>Experto en enrutamiento. Responsable de IPv6, alta disponibilidad (HSRP) y administración de servidores web seguros.</p>
+                </div>
             </div>
         </div>
 
@@ -425,7 +452,9 @@
             <h3>Maycol Stiven Hoyos Hurtado</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Líder de infraestructura Cisco. Experto en conectividad segura mediante VPN IKEv2 y administración de servicios críticos en Linux como telefonía IP y RAID.</p>
+                <div class="accordion-content">
+                    <p>Líder de infraestructura Cisco. Experto en conectividad segura mediante VPN IKEv2 y administración de servicios críticos en Linux como telefonía IP y RAID</p>
+                </div>
             </div>
         </div>
 
@@ -434,7 +463,9 @@
             <h3>Daniel Felipe Arboleda Mera</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Especialista en despliegue. Responsable de WDS, seguridad de puertos y administración de identidades en OpenLDAP.</p>
+                <div class="accordion-content">
+                    <p>Especialista en despliegue. Responsable de WDS, seguridad de puertos y administración de identidades en OpenLDAP.</p>
+                </div>
             </div>
         </div>
 
@@ -443,7 +474,9 @@
             <h3>Jhoan Stiven Loboa Cambindo</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Líder de Ciberseguridad del proyecto. Especialista en asegurar entornos Windows mediante Entidades Certificadoras (CA) y HTTPS.</p>
+                <div class="accordion-content">
+                    <p>Líder de Ciberseguridad del proyecto. Especialista en asegurar entornos Windows mediante Entidades Certificadoras (CA) y HTTPS</p>
+                </div>
             </div>
         </div>
 
@@ -452,7 +485,9 @@
             <h3>Juan Diego Banquez Diaz</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Líder Linux. Encargado de la coordinación de servidores Open Source, servicios de correo y monitoreo Syslog.</p>
+                <div class="accordion-content">
+                    <p>Líder Linux. Encargado de la coordinación de servidores Open Source, servicios de correo y monitoreo Syslog.</p>
+                </div>
             </div>
         </div>
 
@@ -461,7 +496,9 @@
             <h3>Jhoan Sebastian Celis</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Administrador de seguridad. Encargado de réplica de Directorio Activo, seguridad en switches y gestión de OpenSSL.</p>
+                <div class="accordion-content">
+                    <p>Administrador de seguridad. Encargado de réplica de Directorio Activo, seguridad en switches y gestión de OpenSSL.</p>
+                </div>
             </div>
         </div>
 
@@ -470,7 +507,9 @@
             <h3>Andres Felipe Garay Monrroy</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Integrador de sistemas. Especialista en Directorio Activo, autenticación RADIUS y transición de túneles IPv6.</p>
+                <div class="accordion-content">
+                    <p>Integrador de sistemas. Especialista en Directorio Activo, autenticación RADIUS y transición de túneles IPv6.</p>
+                </div>
             </div>
         </div>
 
@@ -479,7 +518,9 @@
             <h3>Jhoan Sbastian Certuche Velez</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Especialista en servicios de red. Encargado de políticas de acceso NPS, telefonía IP y gestión de DHCP/DNS.</p>
+                <div class="accordion-content">
+                    <p>Especialista en servicios de red. Encargado de políticas de acceso NPS, telefonía IP y gestión de DHCP/DNS.</p>
+                </div>
             </div>
         </div>
 
@@ -488,7 +529,9 @@
             <h3>Harby Torres</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Administrador de red. Responsable de servicios DNS, correo, almacenamiento RAID y servidores de impresión.</p>
+                <div class="accordion-content">
+                    <p>Administrador de red. Responsable de servicios DNS, correo, almacenamiento RAID y servidores de impresión.</p>
+                </div>
             </div>
         </div>
 
@@ -497,7 +540,9 @@
             <h3>Julian David Lugo Acevedo</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Gestor de infraestructura. Responsable de redes inalámbricas, protocolos AAA y documentación de direccionamiento.</p>
+                <div class="accordion-content">
+                    <p>Gestor de infraestructura. Responsable de redes inalámbricas, protocolos AAA y documentación de direccionamiento.</p>
+                </div>
             </div>
         </div>
 
@@ -506,7 +551,9 @@
             <h3>Joshep Andres Ramirez Conde</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Líder Windows. Experto en servicios de escritorio remoto (RDS) y optimización de enlaces Ether-channel.</p>
+                <div class="accordion-content">
+                    <p>Líder Windows. Experto en servicios de escritorio remoto (RDS) y optimización de enlaces Ether-channel.</p>
+                </div>
             </div>
         </div>
 
@@ -515,7 +562,9 @@
             <h3>Carlos Gabriel Loaiza Daza</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
-                <p>Mentor de infraestructura encargado de la supervisión técnica, soporte en solución de fallas (troubleshooting) y validación de protocolos de red y servidores.</p>
+                <div class="accordion-content">
+                    <p>Mentor de infraestructura encargado de la supervisión técnica, soporte en solución de fallas (troubleshooting) y validación de protocolos de red y servidores.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -526,47 +575,57 @@
     
     <div class="cards">
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="1.png" alt="Evidencia 1">
+            <img src="foto1.png" alt="Evidencia 1">
             <h3>Data Center Core</h3>
             <p class="subtitle">Infraestructura</p>
             <div class="accordion">
-                <p>Montaje físico y cableado estructurado del clúster principal de servidores corporativos.</p>
+                <div class="accordion-content">
+                    <p>Montaje físico y cableado estructurado del clúster principal de servidores corporativos.</p>
+                </div>
             </div>
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="2.png" alt="Evidencia 2">
+            <img src="foto2.png" alt="Evidencia 2">
             <h3>Switches de Distribución</h3>
             <p class="subtitle">Networking</p>
             <div class="accordion">
-                <p>Organización de patch cords y configuración de enlaces troncales de VLANs dinámicas.</p>
+                <div class="accordion-content">
+                    <p>Organización de patch cords y configuración de enlaces troncales de VLANs dinámicas.</p>
+                </div>
             </div>
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="3.png" alt="Evidencia 3">
+            <img src="foto3.png" alt="Evidencia 3">
             <h3>Consola Linux</h3>
             <p class="subtitle">Servidores Open Source</p>
             <div class="accordion">
-                <p>Despliegue y hardening de servicios web seguros HTTPS con llaves criptográficas SSL en Debian 13.</p>
+                <div class="accordion-content">
+                    <p>Despliegue y hardening de servicios web seguros HTTPS con llaves criptográficas SSL en Debian 13.</p>
+                </div>
             </div>
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="4.png" alt="Evidencia 4">
+            <img src="foto4.png" alt="Evidencia 4">
             <h3>Windows Server 2022</h3>
             <p class="subtitle">Sistemas Operativos</p>
             <div class="accordion">
-                <p>Administración lógica de identidades, políticas de grupo (GPO) y Active Directory.</p>
+                <div class="accordion-content">
+                    <p>Administración lógica de identidades, políticas de grupo (GPO) y Active Directory.</p>
+                </div>
             </div>
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="5.png" alt="Evidencia 5">
+            <img src="foto5.png" alt="Evidencia 5">
             <h3>Alta Disponibilidad</h3>
             <p class="subtitle">Cisco Redes</p>
             <div class="accordion">
-                <p>Configuración y pruebas de tolerancia a fallos en el backbone de red usando el protocolo HSRP.</p>
+                <div class="accordion-content">
+                    <p>Configuración y pruebas de tolerancia a fallos en el backbone de red usando el protocolo HSRP.</p>
+                </div>
             </div>
         </div>
 
@@ -575,7 +634,9 @@
             <h3>Seguridad Perimetral</h3>
             <p class="subtitle">Ciberseguridad</p>
             <div class="accordion">
-                <p>Implementación de defensas en switches de acceso contra ataques dirigidos con DHCP Snooping.</p>
+                <div class="accordion-content">
+                    <p>Implementación de defensas en switches de acceso contra ataques dirigidos con DHCP Snooping.</p>
+                </div>
             </div>
         </div>
 
@@ -584,7 +645,9 @@
             <h3>Enrutamiento OSPF</h3>
             <p class="subtitle">Cisco Redes</p>
             <div class="accordion">
-                <p>Mapeo de rutas dinámicas y convergencia de enlaces en topologías multiárea.</p>
+                <div class="accordion-content">
+                    <p>Mapeo de rutas dinámicas y convergencia de enlaces en topologías multiárea.</p>
+                </div>
             </div>
         </div>
 
@@ -593,7 +656,9 @@
             <h3>Servicios TFTP/FTPS</h3>
             <p class="subtitle">Servidores Linux</p>
             <div class="accordion">
-                <p>Configuración de transferencia segura de archivos para el respaldo de imágenes de IOS Cisco.</p>
+                <div class="accordion-content">
+                    <p>Configuración de transferencia segura de archivos para el respaldo de imágenes de IOS Cisco.</p>
+                </div>
             </div>
         </div>
 
@@ -602,7 +667,9 @@
             <h3>Direccionamiento IPv6</h3>
             <p class="subtitle">Infraestructura</p>
             <div class="accordion">
-                <p>Asignación y planeación de subredes globales mediante direccionamiento estático y DHCPv6.</p>
+                <div class="accordion-content">
+                    <p>Asignación y planeación de subredes globales mediante direccionamiento estático y DHCPv6.</p>
+                </div>
             </div>
         </div>
 
@@ -611,7 +678,9 @@
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
             <div class="accordion">
-                <p>Configuración y despliegue de arreglos de almacenamiento redundante RAID para servicios críticos.</p>
+                <div class="accordion-content">
+                    <p>Configuración y despliegue de arreglos de almacenamiento redundante RAID para servicios críticos.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -651,7 +720,7 @@
         document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
         
         const targetSection = document.getElementById(id);
-        if (targetSection) {
+        if(targetSection) {
             targetSection.classList.add('active');
         }
         
@@ -659,19 +728,20 @@
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-btn'));
             btnElement.classList.add('active-btn');
         }
+        
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // --- ACORDEONES ANIMADOS ---
     function toggleAccordion(cardElement) {
         const accordion = cardElement.querySelector('.accordion');
-        if (!accordion) return;
         
         if (accordion.classList.contains('open')) {
             accordion.classList.remove('open');
         } else {
             const allAccordions = cardElement.parentElement.querySelectorAll('.accordion');
             allAccordions.forEach(acc => acc.classList.remove('open'));
+            
             accordion.classList.add('open');
         }
     }
@@ -679,22 +749,19 @@
     // --- FILTRADO DE APRENDICES (DOM FIJO) ---
     document.addEventListener('DOMContentLoaded', () => {
         const buscador = document.getElementById('buscador-aprendices');
-        // Filtra las tarjetas específicas dentro de la sección de aprendices únicamente
-        const tarjetasAprendices = document.querySelectorAll('#aprendices .card');
+        const tarjetas = document.querySelectorAll('#contenedor-aprendices .card');
 
         if (buscador) {
             buscador.addEventListener('input', () => {
                 const filtro = buscador.value.toLowerCase().trim();
 
-                tarjetasAprendices.forEach(tarjeta => {
-                    const titleElement = tarjeta.querySelector('h3');
-                    if (titleElement) {
-                        const nombre = titleElement.textContent.toLowerCase();
-                        if (nombre.includes(filtro)) {
-                            tarjeta.style.display = ""; 
-                        } else {
-                            tarjeta.style.display = "none"; 
-                        }
+                tarjetas.forEach(tarjeta => {
+                    const nombre = tarjeta.querySelector('h3').textContent.toLowerCase();
+
+                    if (nombre.includes(filtro)) {
+                        tarjeta.style.display = ""; 
+                    } else {
+                        tarjeta.style.display = "none"; 
                     }
                 });
             });
