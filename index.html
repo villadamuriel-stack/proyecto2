@@ -350,6 +350,15 @@
         #documentos .card i.fa-file-powerpoint {
             color: #d84315; /* Naranja PowerPoint */
         }
+
+        /* Estilo específico para los textos alineados de Misión y Visión */
+        .project-text {
+            text-align: justify;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -361,7 +370,8 @@
     </div>
     <nav>
         <ul id="nav-links">
-            <li><button class="nav-btn active-btn" onclick="showSection('inicio', this)">Inicio</button></li>
+            <li><button class="nav-btn active-btn" onclick="showSection('proyecto', this)">Proyecto</button></li>
+            <li><button class="nav-btn" onclick="showSection('inicio', this)">Bienvenida</button></li>
             <li><button class="nav-btn" onclick="showSection('areas', this)">Áreas</button></li>
             <li><button class="nav-btn" onclick="showSection('docentes', this)">Docentes</button></li>
             <li><button class="nav-btn" onclick="showSection('aprendices', this)">Aprendices</button></li>
@@ -372,11 +382,34 @@
     </nav>
 </header>
 
-<section id="inicio" class="active">
+<section id="proyecto" class="active">
+    <h2 style="text-align:center">Estructura del Proyecto</h2>
+    <div class="cards">
+        <div class="card" style="cursor: default;">
+            <i class="fa-solid fa-circle-info"></i>
+            <h3>Introducción</h3>
+            <p class="project-text">Este proyecto comprende el diseño, despliegue y administración de una infraestructura tecnológica integrada para el grupo GRD2-53. A través de la convergencia de plataformas Windows Server, Linux Open Source y arquitecturas de red Cisco, se implementan servicios seguros de alta disponibilidad que responden a las demandas actuales del sector corporativo IT.</p>
+        </div>
+
+        <div class="card" style="cursor: default;">
+            <i class="fa-solid fa-bullseye"></i>
+            <h3>Misión</h3>
+            <p class="project-text">Proveer una infraestructura informática robusta, segura y escalable que optimice la conectividad lógica y la administración de identidades del clúster académico. Buscamos consolidar las competencias de administración perimetral y servicios HTTPS/TFTP mediante la aplicación rigurosa de estándares técnicos internacionales.</p>
+        </div>
+
+        <div class="card" style="cursor: default;">
+            <i class="fa-solid fa-eye"></i>
+            <h3>Visión</h3>
+            <p class="project-text">Convertirse en el modelo de referencia tecnológico y de infraestructura IT para el Centro de Electricidad y Automatización Industrial (CEAI) Salomia hacia el cierre del ciclo de formación. Proyectamos liderar la integración de servicios de red avanzados y topologías dinámicas multiárea bajo entornos de total tolerancia a fallos.</p>
+        </div>
+    </div>
+</section>
+
+<section id="inicio">
     <div class="hero">
         <h1>Formación Tecnológica SENA</h1>
         <p>Especialistas en infraestructura IT, conectividad and administración de sistemas.</p>
-        <a class="btn" onclick="showSection('areas', document.querySelectorAll('.nav-btn')[1])">Explorar Áreas</a>
+        <a class="btn" onclick="showSection('areas', document.querySelectorAll('.nav-btn')[2])">Explorar Áreas</a>
     </div>
 </section>
 
@@ -446,9 +479,9 @@
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="diaz.png" alt="Gustavo Diaz">
+            <img src="gustavo.png" alt="Gustavo Diaz">
             <h3>Gustavo Adolfo Diaz</h3>
-            <p>Instructor de Cisco</p>
+            <p>Instructor de Especialidad</p>
             <div class="accordion">
                 <p>Profesional experto en tecnologías de la información y conectividad. Responsable de la formación técnica y práctica en la administración de redes Cisco, desarrollo y automatización de scripts con Python, y la implementación y configuración de sistemas de Telefonía IP.</p>
             </div>
@@ -559,7 +592,7 @@
             <p class="subtitle">Aprendiz</p>
             <div class="accordion">
                 <div class="accordion-content">
-                    <p>Administrador de red. Responsable de servicios DNS, correo, almacenamiento RAID y servidores de impresión.</p>
+                    <p>Administrador de red. Responsable de servicios DNS, correo, almacenamiento RAID and servidores de impresión.</p>
                 </div>
             </div>
         </div>
