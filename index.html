@@ -9,17 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* Variables CSS para facilitar el cambio de colores */
+        /* Variables CSS Avanzadas */
         :root {
             --primary-color: #39A900;
             --primary-dark: #2e7d32;
+            --primary-gradient: linear-gradient(135deg, #4ad600, #2e7d32);
             --bg-light: #f4fdf6;
-            --text-color: #333;
+            --text-color: #2c3e50;
+            --text-muted: #607d8b;
             --white: #fff;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
-            --shadow-hover: 0 15px 35px rgba(57, 169, 0, 0.15);
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-premium: 0 10px 30px rgba(46, 125, 50, 0.08);
+            --shadow-hover: 0 20px 40px rgba(57, 169, 0, 0.18);
+            --border-radius-lg: 18px;
         }
 
         /* Reseteo general */
@@ -32,41 +34,53 @@
 
         body {
             background-color: var(--bg-light);
+            /* Patrón de fondo sutil para romper la monotonía del color plano */
+            background-image: radial-gradient(#39A900 0.5px, transparent 0.5px), radial-gradient(#39A900 0.5px, #f4fdf6 0.5px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
             color: var(--text-color);
         }
 
-        /* Cabecera y Navegación */
+        /* Cabecera y Navegación Premium */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(57, 169, 0, 0.1);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             cursor: pointer;
         }
 
+        .logo h3 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
         .logo img {
-            width: 50px;
+            width: 48px;
             transition: var(--transition);
         }
 
         .logo:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08) rotate(5deg);
         }
 
         nav ul {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             list-style: none;
         }
 
@@ -74,315 +88,347 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-weight: 500;
-            font-size: 16px;
-            color: var(--text-color);
+            font-weight: 600;
+            font-size: 15px;
+            color: #455a64;
             transition: var(--transition);
-            padding: 5px 10px;
-            border-radius: 5px;
+            padding: 8px 16px;
+            border-radius: 8px;
         }
 
         nav button:hover, nav button.active-btn {
-            color: var(--primary-color);
-            background-color: #e8f5e9;
+            color: var(--white);
+            background: var(--primary-gradient);
+            box-shadow: 0 4px 12px rgba(57, 169, 0, 0.2);
         }
 
         /* Secciones */
         section {
             display: none;
-            padding: 70px 20px;
-            animation: fadeIn 0.5s ease-in-out;
-            min-height: 80vh;
+            padding: 80px 40px;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 85vh;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
         section.active {
             display: block;
         }
 
-        /* Títulos de sección con estilo premium */
+        /* Títulos de sección de alto impacto */
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: #1b5e20;
-            position: relative;
-            margin-bottom: 50px;
-            font-weight: 700;
+            font-weight: 800;
+            margin-bottom: 60px;
+            letter-spacing: -0.5px;
         }
 
-        .section-title::after {
+        .section-title span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .section-title span::after {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
             height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
+            background: var(--primary-gradient);
+            border-radius: 10px;
         }
 
         /* Hero / Bienvenida */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            background: var(--primary-gradient);
             color: var(--white);
             text-align: center;
-            padding: 100px 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 120px 40px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 15px 35px rgba(46, 125, 50, 0.25);
+            position: relative;
+            overflow: hidden;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
 
         .btn {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 30px;
             background: var(--white);
-            color: var(--primary-color);
-            padding: 12px 30px;
+            color: var(--primary-dark);
+            padding: 14px 40px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: var(--transition);
             cursor: pointer;
-            border: 2px solid var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .btn:hover {
-            background: transparent;
-            color: var(--white);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
-        /* Tarjetas Base */
+        /* Contenedores de Tarjetas Estándar */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 20px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .card {
-            background: var(--white);
-            padding: 30px 25px;
-            border-radius: 16px;
-            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 35px 25px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-premium);
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
-            border: 1px solid rgba(0,0,0,0.02);
-            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             box-shadow: var(--shadow-hover);
+            border-color: rgba(57, 169, 0, 0.2);
+        }
+
+        /* --- 🛠️ CORRECCIÓN DE FILA IMPECABLE PARA DOCENTES --- */
+        .row-docentes {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important; /* Deniega saltos de línea */
+            justify-content: space-between !important;
+            gap: 20px !important;
+            width: 100% !important;
+        }
+
+        .row-docentes .card {
+            flex: 1 !important; /* Distribución perfectamente equitativa */
+            min-width: 0 !important; 
+            padding: 30px 15px !important; 
         }
 
         .card img {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #e8f5e9;
-        }
-
-        .card i {
-            font-size: 45px;
-            color: var(--primary-color);
+            margin-bottom: 20px;
+            border: 4px solid #e8f5e9;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             transition: var(--transition);
         }
 
-        /* --- DISEÑO AVANZADO REQUERIDO PARA LA SECCIÓN PROYECTO --- */
+        .card:hover img {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1a237e;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Secciones Institucionales: Proyecto */
         .project-card {
             cursor: default !important;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.95);
         }
 
-        /* Estilo especial destacado para la tarjeta de Introducción */
-        .card-intro {
-            background: linear-gradient(145deg, #ffffff, #f1fbf3);
-            border-left: 5px solid var(--primary-color);
-        }
+        .card-intro { border-left: 6px solid var(--primary-color); }
+        .card-mission { border-left: 6px solid #283593; }
+        .card-vision { border-left: 6px solid #00796b; }
 
-        /* Borde superior nítido corporativo para Misión y Visión */
-        .card-mission { border-top: 5px solid var(--primary-color); }
-        .card-vision { border-top: 5px solid var(--primary-dark); }
-
-        /* Contenedor circular elegante para los iconos */
         .icon-box {
-            width: 85px;
-            height: 85px;
+            width: 80px;
+            height: 80px;
             background-color: #e8f5e9;
-            border-radius: 50%;
+            border-radius: var(--border-radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin: 0 auto 25px auto;
             transition: var(--transition);
         }
 
         .project-card:hover .icon-box {
-            background-color: var(--primary-color);
-            transform: scale(1.05);
+            background: var(--primary-gradient);
+            transform: rotate(10deg);
         }
 
         .project-card:hover .icon-box i {
             color: var(--white);
         }
 
-        .project-card h3 {
-            font-size: 1.4rem;
-            color: #1b5e20;
-            margin-bottom: 15px;
-            font-weight: 600;
+        .card i {
+            font-size: 40px;
+            color: var(--primary-color);
         }
 
         .project-text {
             text-align: justify;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #555;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #455a64;
         }
 
         /* Acordeón */
         .accordion {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-            background: #e8f5e9;
-            border-radius: 10px;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease-out;
+            background: #f1f8e9;
+            border-radius: 12px;
             margin-top: 15px;
             opacity: 0;
         }
 
         .accordion.open {
-            max-height: 200px;
-            padding: 15px;
+            max-height: 250px;
+            padding: 20px;
             opacity: 1;
+            border-top: 2px solid var(--primary-color);
         }
 
         .accordion p {
-            margin-bottom: 5px;
-            font-size: 14px;
+            margin-bottom: 8px;
+            font-size: 13.5px;
+            text-align: justify;
+            color: #37474f;
         }
 
         /* Buscador de Aprendices */
         .search-container {
             max-width: 600px;
-            margin: 20px auto;
+            margin: -20px auto 40px auto;
             position: relative;
         }
 
         .search-container input {
             width: 100%;
-            padding: 15px 45px 15px 20px;
+            padding: 16px 25px;
+            padding-right: 55px;
             border-radius: 30px;
-            border: 1px solid #ccc;
+            border: 2px solid rgba(57, 169, 0, 0.15);
             font-size: 16px;
+            background: var(--white);
+            box-shadow: var(--shadow-premium);
             transition: var(--transition);
         }
 
         .search-container input:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 8px rgba(57,169,0,0.3);
+            box-shadow: 0 0 15px rgba(57,169,0,0.2);
         }
 
         .search-container i {
             position: absolute;
-            right: 20px;
+            right: 22px;
             top: 50%;
             transform: translateY(-50%);
-            color: #888;
+            color: var(--primary-color);
+            font-size: 18px;
         }
 
-        /* Formulario y Footer */
+        /* Formulario y Contacto */
         form {
-            max-width: 500px;
+            max-width: 550px;
             margin: 30px auto;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 22px;
             background: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-md);
+            padding: 40px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(0,0,0,0.01);
         }
 
         input, textarea {
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #cfd8dc;
             font-size: 15px;
+            background: #fcfdfe;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: var(--white);
         }
 
         button.submit {
-            background: var(--primary-color);
+            background: var(--primary-gradient);
             color: var(--white);
             border: none;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 16px;
+            border-radius: 10px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(57, 169, 0, 0.2);
         }
 
         button.submit:hover {
-            background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(57, 169, 0, 0.3);
         }
 
         footer {
-            background: var(--primary-dark);
+            background: #1b5e20;
             color: var(--white);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--primary-color);
         }
 
         footer i {
-            margin: 0 10px;
-            font-size: 20px;
+            margin: 0 12px;
+            font-size: 22px;
             cursor: pointer;
             transition: var(--transition);
+            color: #a5d6a7;
         }
 
         footer i:hover {
-            color: #e8f5e9;
-            transform: scale(1.2);
+            color: var(--white);
+            transform: translateY(-3px);
         }
 
         /* Animaciones */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive */
-        @media(max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        /* --- CONFIGURACIÓN DE LA GALERÍA --- */
+        /* --- CONFIGURACIÓN DE LA GALERÍA COMPACTA --- */
         #Drive .card {
             padding: 0 !important;
             overflow: hidden !important;
@@ -399,38 +445,24 @@
         }
 
         #Drive .card h3 {
-            margin-top: 12px !important;
+            margin-top: 15px !important;
             font-size: 16px !important;
-            padding: 0 10px !important;
+            padding: 0 15px !important;
+            color: #1b5e20;
         }
 
         #Drive .card .subtitle {
-            margin-bottom: 12px !important;
+            margin-bottom: 15px !important;
             font-size: 13px !important;
-            color: #666 !important;
-            padding: 0 10px !important;
-        }
-
-        /* Estilos específicos y colores institucionales para la sección de Documentos */
-        #documentos .card a {
-            text-decoration: none;
-            color: inherit;
-        }
-        #documentos .card i.fa-file-pdf {
-            color: #e53935;
-        }
-        #documentos .card i.fa-file-excel {
-            color: #1e7e34;
-        }
-        #documentos .card i.fa-file-powerpoint {
-            color: #d84315;
+            color: var(--text-muted) !important;
+            padding: 0 15px !important;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo" onclick="showSection('inicio')">
+    <div class="logo" onclick="showSection('proyecto')">
         <img src="logo-del-sena-verde.png" alt="SENA Logo">
         <h3>SENA</h3>
     </div>
@@ -448,41 +480,29 @@
     </nav>
 </header>
 
-<!-- SECCIÓN PROYECTO CON REDISEÑO ESTÉTICO AVANZADO -->
 <section id="proyecto" class="active">
-    <h2 class="section-title">Estructura del Proyecto</h2>
+    <h2 class="section-title"><span>Estructura del Proyecto</span></h2>
     <div class="cards">
-        
-        <!-- Tarjeta Introducción -->
         <div class="card project-card card-intro">
-            <div class="icon-box">
-                <i class="fa-solid fa-circle-info"></i>
-            </div>
+            <div class="icon-box"><i class="fa-solid fa-circle-info"></i></div>
             <h3>Introducción</h3>
             <p class="project-text">Este proyecto comprende el diseño, despliegue y administración de una infraestructura tecnológica integrada para el grupo GRD2-53. A través de la convergencia de plataformas Windows Server, Linux Open Source y arquitecturas de red Cisco, se implementan servicios seguros de alta disponibilidad que responden a las demandas actuales del sector corporativo IT.</p>
         </div>
 
-        <!-- Tarjeta Misión -->
         <div class="card project-card card-mission">
-            <div class="icon-box">
-                <i class="fa-solid fa-bullseye"></i>
-            </div>
+            <div class="icon-box"><i class="fa-solid fa-bullseye"></i></div>
             <h3>Misión</h3>
             <p class="project-text">Proveer una infraestructura informática robusta, segura y escalable que optimice la conectividad lógica y la administración de identidades del clúster académico. Buscamos consolidar las competencias de administración perimetral y servicios HTTPS/TFTP mediante la aplicación rigurosa de estándares técnicos internacionales.</p>
         </div>
 
-        <!-- Tarjeta Visión -->
         <div class="card project-card card-vision">
-            <div class="icon-box">
-                <i class="fa-solid fa-eye"></i>
-            </div>
+            <div class="icon-box"><i class="fa-solid fa-eye"></i></div>
             <h3>Visión</h3>
             <p class="project-text">Convertirse en el modelo de referencia tecnológico y de infraestructura IT para el Centro de Electricidad y Automatización Industrial (CEAI) Salomia hacia el cierre del ciclo de formación. Proyectamos liderar la integración de servicios de red avanzados y topologías dinámicas multiárea bajo entornos de total tolerancia a fallos.</p>
         </div>
     </div>
 </section>
 
-<!-- SECCIÓN DE BIENVENIDA -->
 <section id="inicio">
     <div class="hero">
         <h1>Formación Tecnológica SENA</h1>
@@ -492,7 +512,7 @@
 </section>
 
 <section id="areas">
-    <h2 class="section-title">Áreas de Formación</h2>
+    <h2 class="section-title"><span>Áreas de Formación</span></h2>
     <div class="cards">
         <div class="card" onclick="toggleAccordion(this)">
             <i class="fa-brands fa-windows"></i>
@@ -527,32 +547,32 @@
 </section>
 
 <section id="docentes">
-    <h2 class="section-title">Plantel Docente</h2>
-    <div class="cards">
+    <h2 class="section-title"><span>Plantel Docente</span></h2>
+    <div class="row-docentes">
         <div class="card" onclick="toggleAccordion(this)">
             <img src="W.png" alt="William Santamaría">
-            <h3>William Giovanni Santamaria Riaño</h3>
+            <h3>William Giovanni Santamaria</h3>
             <p>Instructor de Windows</p>
             <div class="accordion">
-                <p>Líder estratégico encargado de supervisar la implementación de servicios de infraestructura en entornos Windows Server. Coordina el despliegue de roles críticos como Directorio Activo, servicios de escritorio remoto y políticas de almacenamiento, asegurando la integridad y disponibilidad de los recursos corporativos del proyecto.</p>
+                <p>Líder estratégico encargado de supervisar la implementación de servicios en entornos Windows Server corporativos.</p>
             </div>
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
             <img src="profeA.png" alt="Juan Agredo">
-            <h3>Juan Pablo Agredo Castaño</h3>
+            <h3>Juan Pablo Agredo</h3>
             <p>Instructor de Linux</p>
             <div class="accordion">
-                <p>Líder técnico encargado de supervisar la implementación y estabilidad de los servidores Open Source. Coordina la configuración de servicios críticos como correo, impresión y autenticación, asegurando el alto rendimiento y la correcta integración de todas las plataformas Linux dentro del proyecto.</p>
+                <p>Líder técnico encargado de supervisar la implementación, servicios críticos y estabilidad de servidores Open Source.</p>
             </div>
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
             <img src="profem.png" alt="Diego Mapallo">
-            <h3>Diego Fernando Rodriguez Mapallo</h3>
+            <h3>Diego Fernando Rodriguez</h3>
             <p>Instructor de Cisco</p>
             <div class="accordion">
-                <p>Arquitecto de red responsable de dirigir la configuración de la infraestructura de networking. Supervisa la implementación de protocolos de enrutamiento avanzado, seguridad perimetral, alta disponibilidad y servicios de telefonía IP,  garantizando una conectividad robusta y eficiente entre todos los nodos de la red.</p>
+                <p>Arquitecto de red responsable de dirigir la configuración de routing, switching avanzado y direccionamiento global.</p>
             </div>
         </div>
 
@@ -561,90 +581,87 @@
             <h3>Gustavo Adolfo Diaz</h3>
             <p>Instructor de Especialidad</p>
             <div class="accordion">
-                <p>Profesional experto en tecnologías de la información y conectividad. Responsable de la formación técnica y práctica en la administración de redes Cisco, desarrollo y automatización de scripts con Python, y la implementación y configuración de sistemas de Telefonía IP.</p>
+                <p>Profesional experto en TI. Encargado de la formación en redes avanzadas, scripts de automatización e infraestructura analítica.</p>
             </div>
         </div>
     </div>
 </section>
 
 <section id="aprendices">
-    <h2 class="section-title">Nuestros Aprendices</h2>
-    
+    <h2 class="section-title"><span>Nuestros Aprendices</span></h2>
     <div class="search-container">
         <input type="text" id="buscador-aprendices" placeholder="Buscar por nombre...">
         <i class="fa-solid fa-search"></i>
     </div>
-
     <div class="cards" id="contenedor-aprendices">
-        <!-- Los aprendices se mantienen idénticos -->
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="cam1.png" alt="Cristian Camilo Villada Muriel">
+            <img src="cam1.png">
             <h3>Cristian Camilo Villada Muriel</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Experto en enrutamiento. Responsable de IPv6, alta disponibilidad (HSRP) y administración de servidores web seguros.</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="may.png" alt="Maycol Stiven Hoyos Hurtado">
+            <img src="may.png">
             <h3>Maycol Stiven Hoyos Hurtado</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Líder de infraestructura Cisco. Experto en conectividad segura mediante VPN IKEv2 y administración de servicios críticos en Linux como telefonía IP y RAID</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="toru.png" alt="Daniel Felipe Arboleda Mera">
+            <img src="toru.png">
             <h3>Daniel Felipe Arboleda Mera</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Especialista en despliegue. Responsable de WDS, seguridad de puertos y administración de identidades en OpenLDAP.</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="lobo.png" alt="Jhoan Stiven Loboa Cambindo">
+            <img src="lobo.png">
             <h3>Jhoan Stiven Loboa Cambindo</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Líder de Ciberseguridad del proyecto. Especialista en asegurar entornos Windows mediante Entidades Certificadoras (CA) y HTTPS</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="banquez.png" alt="Juan Diego Banquez Diaz">
+            <img src="banquez.png">
             <h3>Juan Diego Banquez Diaz</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Líder Linux. Encargado de la coordinación de servidores Open Source, servicios de correo y monitoreo Syslog.</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="celis.png" alt="Jhoan Sebastian Celis">
+            <img src="celis.png">
             <h3>Jhoan Sebastian Celis</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Administrador de seguridad. Encargado de réplica de Directorio Activo, seguridad en switches y gestión de OpenSSL.</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="garay.png" alt="Andres Felipe Garay Monrroy">
+            <img src="garay.png">
             <h3>Andres Felipe Garay Monrroy</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Integrador de sistemas. Especialista en Directorio Activo, autenticación RADIUS y transición de túneles IPv6.</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="tuche.png" alt="Jhoan Sbastian Certuche Velez">
+            <img src="tuche.png">
             <h3>Jhoan Sbastian Certuche Velez</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Especialista en servicios de red. Encargado de políticas de acceso NPS, telefonía IP y gestión de DHCP/DNS.</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="harby.png" alt="Harby Torres">
+            <img src="harby.png">
             <h3>Harby Torres</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Administrador de red. Responsable de servicios DNS, correo, almacenamiento RAID and servidores de impresión.</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="julian.png" alt="Julian David Lugo Acevedo">
+            <img src="julian.png">
             <h3>Julian David Lugo Acevedo</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Gestor de infraestructura. Responsable de redes inalámbricas, protocolos AAA y documentación de direccionamiento.</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="andres.png" alt="Joshep Andres Ramirez Conde">
+            <img src="andres.png">
             <h3>Joshep Andres Ramirez Conde</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Líder Windows. Experto en servicios de escritorio remoto (RDS) and optimización de enlaces Ether-channel.</p></div></div>
         </div>
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="carlos.png" alt="Carlos Gabriel Loaiza Daza">
+            <img src="carlos.png">
             <h3>Carlos Gabriel Loaiza Daza</h3>
             <p class="subtitle">Aprendiz</p>
             <div class="accordion"><div class="accordion-content"><p>Mentor de infraestructura encargado de la supervisión técnica, soporte en solución de fallas (troubleshooting) y validación de protocolos de red y servidores.</p></div></div>
@@ -653,9 +670,8 @@
 </section>
 
 <section id="Drive">
-    <h2 class="section-title">Galería de Evidencias</h2>
+    <h2 class="section-title"><span>Galería de Evidencias</span></h2>
     <div class="cards">
-        <!-- Tarjetas de Galería (1 a 40) con nombres nativos originales -->
         <div class="card"><img src="1.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
         <div class="card"><img src="2.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
         <div class="card"><img src="3.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
@@ -700,7 +716,7 @@
 </section>
 
 <section id="documentos">
-    <h2 class="section-title">Documentación del Proyecto</h2>
+    <h2 class="section-title"><span>Documentación del Proyecto</span></h2>
     <div class="cards">
         <div class="card"><a href="Tabla IP V2.pdf" target="_blank"><i class="fa-solid fa-file-excel"></i><h3>Tabla IP</h3><p class="subtitle">Esquema de Direccionamiento (Excel)</p></a></div>
         <div class="card"><a href="Notas_Proyecto final_GRD-53_Actual.xlsx" target="_blank"><i class="fa-solid fa-file-excel"></i><h3>Roles asignados</h3><p class="subtitle">Esquema de Direccionamiento (Excel)</p></a></div>
@@ -714,7 +730,7 @@
 </section>
 
 <section id="contacto">
-    <h2 class="section-title">Contáctanos</h2>
+    <h2 class="section-title"><span>Contáctanos</span></h2>
     <form id="formulario-contacto">
         <input type="text" placeholder="Nombre completo" required>
         <input type="email" placeholder="Correo electrónico" required>
@@ -726,76 +742,56 @@
 <footer>
     <p>Proyecto académico SENA - Desarrollo Tecnológico</p>
     <div style="margin-top: 15px;">
-        <a href="https://www.facebook.com/SENA" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/senacomunica" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/sena" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;"><i class="fab fa-linkedin"></i></a>
-        <a href="#" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/SENA" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/senacomunica" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/sena" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
     </div>
 </footer>
 
 <script>
-    // --- NAVEGACIÓN Y SECCIONES ---
     function showSection(id, btnElement = null) {
         document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-        
         const targetSection = document.getElementById(id);
-        if(targetSection) {
-            targetSection.classList.add('active');
-        }
-        
+        if(targetSection) { targetSection.classList.add('active'); }
         if (btnElement) {
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-btn'));
             btnElement.classList.add('active-btn');
         }
-        
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // --- ACORDEONES ANIMADOS ---
     function toggleAccordion(cardElement) {
         const accordion = cardElement.querySelector('.accordion');
         if (!accordion) return; 
-        
         if (accordion.classList.contains('open')) {
             accordion.classList.remove('open');
         } else {
             const allAccordions = cardElement.parentElement.querySelectorAll('.accordion');
             allAccordions.forEach(acc => acc.classList.remove('open'));
-            
             accordion.classList.add('open');
         }
     }
 
-    // --- FILTRADO DE APRENDICES (DOM FIJO) ---
     document.addEventListener('DOMContentLoaded', () => {
         const buscador = document.getElementById('buscador-aprendices');
         const tarjetas = document.querySelectorAll('#contenedor-aprendices .card');
-
         if (buscador) {
             buscador.addEventListener('input', () => {
                 const filtro = buscador.value.toLowerCase().trim();
-
                 tarjetas.forEach(tarjeta => {
                     const nombre = tarjeta.querySelector('h3').textContent.toLowerCase();
-
-                    if (nombre.includes(filtro)) {
-                        tarjeta.style.display = ""; 
-                    } else {
-                        tarjeta.style.display = "none"; 
-                    }
+                    tarjeta.style.display = nombre.includes(filtro) ? "" : "none";
                 });
             });
         }
     });
     
-    // --- MANEJO DEL FORMULARIO ---
     document.getElementById('formulario-contacto').addEventListener('submit', e => {
         e.preventDefault();
-        
         const btn = e.target.querySelector('button');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
-        
         setTimeout(() => {
             alert('¡Mensaje enviado exitosamente!');
             e.target.reset();
