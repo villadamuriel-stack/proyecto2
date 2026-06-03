@@ -16,7 +16,10 @@
             --bg-light: #f4fdf6;
             --text-color: #333;
             --white: #fff;
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 15px 35px rgba(57, 169, 0, 0.15);
         }
 
         /* Reseteo general */
@@ -39,7 +42,7 @@
             align-items: center;
             padding: 15px 30px;
             background: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -87,7 +90,7 @@
         /* Secciones */
         section {
             display: none;
-            padding: 60px 20px;
+            padding: 70px 20px;
             animation: fadeIn 0.5s ease-in-out;
             min-height: 80vh;
         }
@@ -96,7 +99,29 @@
             display: block;
         }
 
-        /* Hero */
+        /* Títulos de sección con estilo premium */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1b5e20;
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Hero / Bienvenida */
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: var(--white);
@@ -132,12 +157,12 @@
             color: var(--white);
         }
 
-        /* Tarjetas */
+        /* Tarjetas Base */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
@@ -145,19 +170,19 @@
 
         .card {
             background: var(--white);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 30px 25px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
-            border: 1px solid transparent;
+            border: 1px solid rgba(0,0,0,0.02);
+            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-color);
-            box-shadow: 0 8px 25px rgba(57, 169, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
 
         .card img {
@@ -170,14 +195,64 @@
         }
 
         .card i {
-            font-size: 50px;
+            font-size: 45px;
             color: var(--primary-color);
-            margin-bottom: 15px;
             transition: var(--transition);
         }
 
-        .card:hover i {
-            transform: scale(1.1);
+        /* --- DISEÑO AVANZADO REQUERIDO PARA LA SECCIÓN PROYECTO --- */
+        .project-card {
+            cursor: default !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--white);
+        }
+
+        /* Estilo especial destacado para la tarjeta de Introducción */
+        .card-intro {
+            background: linear-gradient(145deg, #ffffff, #f1fbf3);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* Borde superior nítido corporativo para Misión y Visión */
+        .card-mission { border-top: 5px solid var(--primary-color); }
+        .card-vision { border-top: 5px solid var(--primary-dark); }
+
+        /* Contenedor circular elegante para los iconos */
+        .icon-box {
+            width: 85px;
+            height: 85px;
+            background-color: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .icon-box {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .project-card:hover .icon-box i {
+            color: var(--white);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            color: #1b5e20;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .project-text {
+            text-align: justify;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
         }
 
         /* Acordeón */
@@ -242,7 +317,7 @@
             background: var(--white);
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-md);
         }
 
         input, textarea {
@@ -342,22 +417,13 @@
             color: inherit;
         }
         #documentos .card i.fa-file-pdf {
-            color: #e53935; /* Rojo PDF */
+            color: #e53935;
         }
         #documentos .card i.fa-file-excel {
-            color: #1e7e34; /* Verde Excel */
+            color: #1e7e34;
         }
         #documentos .card i.fa-file-powerpoint {
-            color: #d84315; /* Naranja PowerPoint */
-        }
-
-        /* Estilo específico para los textos alineados de Misión y Visión */
-        .project-text {
-            text-align: justify;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #555;
-            margin-top: 10px;
+            color: #d84315;
         }
     </style>
 </head>
@@ -382,29 +448,41 @@
     </nav>
 </header>
 
+<!-- SECCIÓN PROYECTO CON REDISEÑO ESTÉTICO AVANZADO -->
 <section id="proyecto" class="active">
-    <h2 style="text-align:center">Estructura del Proyecto</h2>
+    <h2 class="section-title">Estructura del Proyecto</h2>
     <div class="cards">
-        <div class="card" style="cursor: default;">
-            <i class="fa-solid fa-circle-info"></i>
+        
+        <!-- Tarjeta Introducción -->
+        <div class="card project-card card-intro">
+            <div class="icon-box">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
             <h3>Introducción</h3>
             <p class="project-text">Este proyecto comprende el diseño, despliegue y administración de una infraestructura tecnológica integrada para el grupo GRD2-53. A través de la convergencia de plataformas Windows Server, Linux Open Source y arquitecturas de red Cisco, se implementan servicios seguros de alta disponibilidad que responden a las demandas actuales del sector corporativo IT.</p>
         </div>
 
-        <div class="card" style="cursor: default;">
-            <i class="fa-solid fa-bullseye"></i>
+        <!-- Tarjeta Misión -->
+        <div class="card project-card card-mission">
+            <div class="icon-box">
+                <i class="fa-solid fa-bullseye"></i>
+            </div>
             <h3>Misión</h3>
             <p class="project-text">Proveer una infraestructura informática robusta, segura y escalable que optimice la conectividad lógica y la administración de identidades del clúster académico. Buscamos consolidar las competencias de administración perimetral y servicios HTTPS/TFTP mediante la aplicación rigurosa de estándares técnicos internacionales.</p>
         </div>
 
-        <div class="card" style="cursor: default;">
-            <i class="fa-solid fa-eye"></i>
+        <!-- Tarjeta Visión -->
+        <div class="card project-card card-vision">
+            <div class="icon-box">
+                <i class="fa-solid fa-eye"></i>
+            </div>
             <h3>Visión</h3>
             <p class="project-text">Convertirse en el modelo de referencia tecnológico y de infraestructura IT para el Centro de Electricidad y Automatización Industrial (CEAI) Salomia hacia el cierre del ciclo de formación. Proyectamos liderar la integración de servicios de red avanzados y topologías dinámicas multiárea bajo entornos de total tolerancia a fallos.</p>
         </div>
     </div>
 </section>
 
+<!-- SECCIÓN DE BIENVENIDA -->
 <section id="inicio">
     <div class="hero">
         <h1>Formación Tecnológica SENA</h1>
@@ -414,7 +492,7 @@
 </section>
 
 <section id="areas">
-    <h2 style="text-align:center">Áreas de Formación</h2>
+    <h2 class="section-title">Áreas de Formación</h2>
     <div class="cards">
         <div class="card" onclick="toggleAccordion(this)">
             <i class="fa-brands fa-windows"></i>
@@ -449,7 +527,7 @@
 </section>
 
 <section id="docentes">
-    <h2 style="text-align:center">Plantel Docente</h2>
+    <h2 class="section-title">Plantel Docente</h2>
     <div class="cards">
         <div class="card" onclick="toggleAccordion(this)">
             <img src="W.png" alt="William Santamaría">
@@ -479,7 +557,7 @@
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
-            <img src="gustavo.png" alt="Gustavo Diaz">
+            <img src="diaz.png" alt="Gustavo Diaz">
             <h3>Gustavo Adolfo Diaz</h3>
             <p>Instructor de Especialidad</p>
             <div class="accordion">
@@ -490,7 +568,7 @@
 </section>
 
 <section id="aprendices">
-    <h2 style="text-align:center">Nuestros Aprendices</h2>
+    <h2 class="section-title">Nuestros Aprendices</h2>
     
     <div class="search-container">
         <input type="text" id="buscador-aprendices" placeholder="Buscar por nombre...">
@@ -498,459 +576,145 @@
     </div>
 
     <div class="cards" id="contenedor-aprendices">
+        <!-- Los aprendices se mantienen idénticos -->
         <div class="card" onclick="toggleAccordion(this)">
             <img src="cam1.png" alt="Cristian Camilo Villada Muriel">
             <h3>Cristian Camilo Villada Muriel</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Experto en enrutamiento. Responsable de IPv6, alta disponibilidad (HSRP) y administración de servidores web seguros.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Experto en enrutamiento. Responsable de IPv6, alta disponibilidad (HSRP) y administración de servidores web seguros.</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="may.png" alt="Maycol Stiven Hoyos Hurtado">
             <h3>Maycol Stiven Hoyos Hurtado</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Líder de infraestructura Cisco. Experto en conectividad segura mediante VPN IKEv2 y administración de servicios críticos en Linux como telefonía IP y RAID</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Líder de infraestructura Cisco. Experto en conectividad segura mediante VPN IKEv2 y administración de servicios críticos en Linux como telefonía IP y RAID</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="toru.png" alt="Daniel Felipe Arboleda Mera">
             <h3>Daniel Felipe Arboleda Mera</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Especialista en despliegue. Responsable de WDS, seguridad de puertos y administración de identidades en OpenLDAP.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Especialista en despliegue. Responsable de WDS, seguridad de puertos y administración de identidades en OpenLDAP.</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="lobo.png" alt="Jhoan Stiven Loboa Cambindo">
             <h3>Jhoan Stiven Loboa Cambindo</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Líder de Ciberseguridad del proyecto. Especialista en asegurar entornos Windows mediante Entidades Certificadoras (CA) y HTTPS</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Líder de Ciberseguridad del proyecto. Especialista en asegurar entornos Windows mediante Entidades Certificadoras (CA) y HTTPS</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="banquez.png" alt="Juan Diego Banquez Diaz">
             <h3>Juan Diego Banquez Diaz</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Líder Linux. Encargado de la coordinación de servidores Open Source, servicios de correo y monitoreo Syslog.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Líder Linux. Encargado de la coordinación de servidores Open Source, servicios de correo y monitoreo Syslog.</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="celis.png" alt="Jhoan Sebastian Celis">
             <h3>Jhoan Sebastian Celis</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Administrador de seguridad. Encargado de réplica de Directorio Activo, seguridad en switches y gestión de OpenSSL.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Administrador de seguridad. Encargado de réplica de Directorio Activo, seguridad en switches y gestión de OpenSSL.</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="garay.png" alt="Andres Felipe Garay Monrroy">
             <h3>Andres Felipe Garay Monrroy</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Integrador de sistemas. Especialista en Directorio Activo, autenticación RADIUS y transición de túneles IPv6.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Integrador de sistemas. Especialista en Directorio Activo, autenticación RADIUS y transición de túneles IPv6.</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="tuche.png" alt="Jhoan Sbastian Certuche Velez">
             <h3>Jhoan Sbastian Certuche Velez</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Especialista en servicios de red. Encargado de políticas de acceso NPS, telefonía IP y gestión de DHCP/DNS.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Especialista en servicios de red. Encargado de políticas de acceso NPS, telefonía IP y gestión de DHCP/DNS.</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="harby.png" alt="Harby Torres">
             <h3>Harby Torres</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Administrador de red. Responsable de servicios DNS, correo, almacenamiento RAID and servidores de impresión.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Administrador de red. Responsable de servicios DNS, correo, almacenamiento RAID and servidores de impresión.</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="julian.png" alt="Julian David Lugo Acevedo">
             <h3>Julian David Lugo Acevedo</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Gestor de infraestructura. Responsable de redes inalámbricas, protocolos AAA y documentación de direccionamiento.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Gestor de infraestructura. Responsable de redes inalámbricas, protocolos AAA y documentación de direccionamiento.</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="andres.png" alt="Joshep Andres Ramirez Conde">
             <h3>Joshep Andres Ramirez Conde</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Líder Windows. Experto en servicios de escritorio remoto (RDS) and optimización de enlaces Ether-channel.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Líder Windows. Experto en servicios de escritorio remoto (RDS) and optimización de enlaces Ether-channel.</p></div></div>
         </div>
-
         <div class="card" onclick="toggleAccordion(this)">
             <img src="carlos.png" alt="Carlos Gabriel Loaiza Daza">
             <h3>Carlos Gabriel Loaiza Daza</h3>
             <p class="subtitle">Aprendiz</p>
-            <div class="accordion">
-                <div class="accordion-content">
-                    <p>Mentor de infraestructura encargado de la supervisión técnica, soporte en solución de fallas (troubleshooting) y validación de protocolos de red y servidores.</p>
-                </div>
-            </div>
+            <div class="accordion"><div class="accordion-content"><p>Mentor de infraestructura encargado de la supervisión técnica, soporte en solución de fallas (troubleshooting) y validación de protocolos de red y servidores.</p></div></div>
         </div>
     </div>
 </section>
 
 <section id="Drive">
-    <h2 style="text-align:center">Galería de Evidencias</h2>
-    
+    <h2 class="section-title">Galería de Evidencias</h2>
     <div class="cards">
-        <div class="card">
-            <img src="1.png" alt="Evidencia 1">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="2.png" alt="Evidencia 2">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="3.png" alt="Evidencia 3">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="4.png" alt="Evidencia 4">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="5.png" alt="Evidencia 5">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="6.png" alt="Evidencia 6">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="7.png" alt="Evidencia 7">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="8.png" alt="Evidencia 8">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="9.png" alt="Evidencia 9">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="10.png" alt="Evidencia 10">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="11.png" alt="Evidencia 11">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="mayco.png" alt="Evidencia 12">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="31.png" alt="Evidencia 13">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="julianco.png" alt="Evidencia 14">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="harbyco.png" alt="Evidencia 15">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="13.png" alt="Evidencia 16">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="14.png" alt="Evidencia 17">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="15.png" alt="Evidencia 18">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="16.png" alt="Evidencia 19">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="17.png" alt="Evidencia 20">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="18.png" alt="Evidencia 21">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="19.png" alt="Evidencia 22">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="20.png" alt="Evidencia 23">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="21.png" alt="Evidencia 24">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="22.png" alt="Evidencia 25">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="23.png" alt="Evidencia 26">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="24.png" alt="Evidencia 27">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="25.png" alt="Evidencia 28">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="26.png" alt="Evidencia 29">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="27.png" alt="Evidencia 30">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="28.png" alt="Evidencia 31">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="29.png" alt="Evidencia 32">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="30.png" alt="Evidencia 33">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="31.png" alt="Evidencia 34">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="32.png" alt="Evidencia 35">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="33.png" alt="Evidencia 36">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="34.png" alt="Evidencia 37">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="35.png" alt="Evidencia 38">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="36.png" alt="Evidencia 39">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
-
-        <div class="card">
-            <img src="37.png" alt="Evidencia 40">
-            <h3>proyecto IETA</h3>
-            <p class="subtitle">planeacion</p>
-        </div>
+        <!-- Tarjetas de Galería (1 a 40) con nombres nativos originales -->
+        <div class="card"><img src="1.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="2.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="3.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="4.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="5.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="6.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="7.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="8.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="9.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="10.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="11.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="mayco.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="31.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="julianco.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="harbyco.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="13.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="14.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="15.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="16.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="17.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="18.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="19.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="20.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="21.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="22.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="23.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="24.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="25.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="26.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="27.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="28.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="29.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="30.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="31.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="32.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="33.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="34.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="35.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="36.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
+        <div class="card"><img src="37.png"><h3>proyecto IETA</h3><p class="subtitle">planeacion</p></div>
     </div> 
 </section>
 
 <section id="documentos">
-    <h2 style="text-align:center">Documentación del Proyecto</h2>
+    <h2 class="section-title">Documentación del Proyecto</h2>
     <div class="cards">
-        
-        <div class="card">
-            <a href="Tabla IP V2.pdf" target="_blank">
-                <i class="fa-solid fa-file-excel"></i>
-                <h3>Tabla IP</h3>
-                <p class="subtitle">Esquema de Direccionamiento (Excel)</p>
-            </a>
-        </div>
-
-        <div class="card">
-            <a href="Notas_Proyecto final_GRD-53_Actual.xlsx" target="_blank">
-                <i class="fa-solid fa-file-excel"></i>
-                <h3>Roles asignados</h3>
-                <p class="subtitle">Esquema de Direccionamiento (Excel)</p>
-            </a>
-        </div>
-
-        <div class="card">
-            <a href="ENFOQUE.pdf" target="_blank">
-                <i class="fa-solid fa-file-pdf"></i>
-                <h3>Enfoque del Proyecto</h3>
-                <p class="subtitle">Metodología y Alcance (PDF)</p>
-            </a>
-        </div>
-
-        <div class="card">
-            <a href="FASE LINUX.pdf" target="_blank">
-                <i class="fa-solid fa-file-pdf"></i>
-                <h3>Documento Linux</h3>
-                <p class="subtitle">Servidores Open Source (PDF)</p>
-            </a>
-        </div>
-
-        <div class="card">
-            <a href="documento-windows.pdf" target="_blank">
-                <i class="fa-solid fa-file-pdf"></i>
-                <h3>Documento Windows</h3>
-                <p class="subtitle">Windows Server Infraestructura (PDF)</p>
-            </a>
-        </div>
-
-        <div class="card">
-            <a href="documento-cisco.pdf" target="_blank">
-                <i class="fa-solid fa-file-pdf"></i>
-                <h3>Documento Cisco</h3>
-                <p class="subtitle">Networking y Enrutamiento (PDF)</p>
-            </a>
-        </div>
-
-        <div class="card">
-            <a href="documento-completo.pdf" target="_blank">
-                <i class="fa-solid fa-file-pdf"></i>
-                <h3>Documento Completo</h3>
-                <p class="subtitle">Informe Final Integrado (PDF)</p>
-            </a>
-        </div>
-
-        <div class="card">
-            <a href="presentacion.pptx" target="_blank">
-                <i class="fa-solid fa-file-powerpoint"></i>
-                <h3>Presentación</h3>
-                <p class="subtitle">Sustentación del Proyecto (PPTX)</p>
-            </a>
-        </div>
-
+        <div class="card"><a href="Tabla IP V2.pdf" target="_blank"><i class="fa-solid fa-file-excel"></i><h3>Tabla IP</h3><p class="subtitle">Esquema de Direccionamiento (Excel)</p></a></div>
+        <div class="card"><a href="Notas_Proyecto final_GRD-53_Actual.xlsx" target="_blank"><i class="fa-solid fa-file-excel"></i><h3>Roles asignados</h3><p class="subtitle">Esquema de Direccionamiento (Excel)</p></a></div>
+        <div class="card"><a href="ENFOQUE.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i><h3>Enfoque del Proyecto</h3><p class="subtitle">Metodología y Alcance (PDF)</p></a></div>
+        <div class="card"><a href="FASE LINUX.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i><h3>Documento Linux</h3><p class="subtitle">Servidores Open Source (PDF)</p></a></div>
+        <div class="card"><a href="documento-windows.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i><h3>Documento Windows</h3><p class="subtitle">Windows Server Infraestructura (PDF)</p></a></div>
+        <div class="card"><a href="documento-cisco.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i><h3>Documento Cisco</h3><p class="subtitle">Networking y Enrutamiento (PDF)</p></a></div>
+        <div class="card"><a href="documento-completo.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i><h3>Documento Completo</h3><p class="subtitle">Informe Final Integrado (PDF)</p></a></div>
+        <div class="card"><a href="presentacion.pptx" target="_blank"><i class="fa-solid fa-file-powerpoint"></i><h3>Presentación</h3><p class="subtitle">Sustentación del Proyecto (PPTX)</p></a></div>
     </div>
 </section>
 
 <section id="contacto">
-    <h2 style="text-align:center">Contáctanos</h2>
+    <h2 class="section-title">Contáctanos</h2>
     <form id="formulario-contacto">
         <input type="text" placeholder="Nombre completo" required>
         <input type="email" placeholder="Correo electrónico" required>
@@ -962,18 +726,10 @@
 <footer>
     <p>Proyecto académico SENA - Desarrollo Tecnológico</p>
     <div style="margin-top: 15px;">
-        <a href="https://www.facebook.com/SENA" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;">
-            <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.instagram.com/senacomunica" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/company/sena" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;">
-            <i class="fab fa-github"></i>
-        </a>
+        <a href="https://www.facebook.com/SENA" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/senacomunica" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/sena" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer" style="color: white; margin: 0 10px; text-decoration: none;"><i class="fab fa-github"></i></a>
     </div>
 </footer>
 
