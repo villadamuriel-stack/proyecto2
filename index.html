@@ -309,21 +309,20 @@
 
         /* --- CONFIGURACIÓN DE LA GALERÍA SOLICITADA POR TUS SUPERIORES --- */
         #Drive .card {
-            padding: 0 !important; /* Foto expandida al borde */
+            padding: 0 !important;
             overflow: hidden !important;
-            cursor: default !important; /* Quita la mano de clic ya que no abre nada */
+            cursor: default !important;
         }
 
         #Drive .card img {
             width: 100% !important;
-            height: 280px !important; /* MÁS LARGO DE ALTO */
+            height: 280px !important;
             border-radius: 0 !important;
             border: none !important;
             object-fit: cover !important;
             margin-bottom: 0 !important;
         }
 
-        /* Espacio fijo, pequeño y limpio para el título abajo de la foto */
         #Drive .card h3 {
             margin-top: 12px !important;
             font-size: 16px !important;
@@ -335,6 +334,17 @@
             font-size: 13px !important;
             color: #666 !important;
             padding: 0 10px !important;
+        }
+
+        /* Estilo específico para la sección de Documentos */
+        #documentos .card i {
+            font-size: 60px;
+            color: #d32f2f; /* Color rojizo para PDFs/Word */
+            margin-top: 10px;
+        }
+        #documentos .card a {
+            text-decoration: none;
+            color: inherit;
         }
     </style>
 </head>
@@ -352,6 +362,7 @@
             <li><button class="nav-btn" onclick="showSection('docentes', this)">Docentes</button></li>
             <li><button class="nav-btn" onclick="showSection('aprendices', this)">Aprendices</button></li>
             <li><button class="nav-btn" onclick="showSection('Drive', this)">Galería de fotos</button></li>
+            <li><button class="nav-btn" onclick="showSection('documentos', this)">Documentos</button></li>
             <li><button class="nav-btn" onclick="showSection('contacto', this)">Contacto</button></li>
         </ul>
     </nav>
@@ -430,7 +441,6 @@
             </div>
         </div>
 
-        <!-- NUEVO INSTRUCTOR AGREGADO CON TU ESTRUCTURA NATIVA -->
         <div class="card" onclick="toggleAccordion(this)">
             <img src="gustavo.png" alt="Gustavo Diaz">
             <h3>Gustavo Adolfo Diaz</h3>
@@ -650,7 +660,6 @@
             <p class="subtitle">Almacenamiento</p>
         </div>
 
-        <!-- 11 a 15 (Tus fotos del laboratorio corregidas y cerradas de manera exacta) -->
         <div class="card">
             <img src="11.png" alt="Evidencia 11">
             <h3>Sistemas de Respaldo</h3>
@@ -681,157 +690,185 @@
             <p class="subtitle">Almacenamiento</p>
         </div>
 
-        <!-- 16 a 40 (Nombres de imágenes ajustados con la doble extensión .png.jpeg de tu GitHub) -->
+        <!-- 16 a 40 Restablecidos a .png nativo -->
         <div class="card">
-            <img src="13.png.jpeg" alt="Evidencia 16">
+            <img src="13.png" alt="Evidencia 16">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="14.png.jpeg" alt="Evidencia 17">
+            <img src="14.png" alt="Evidencia 17">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="15.png.jpeg" alt="Evidencia 18">
+            <img src="15.png" alt="Evidencia 18">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="16.png.jpeg" alt="Evidencia 19">
+            <img src="16.png" alt="Evidencia 19">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="17.png.jpeg" alt="Evidencia 20">
+            <img src="17.png" alt="Evidencia 20">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="18.png.jpeg" alt="Evidencia 21">
+            <img src="18.png" alt="Evidencia 21">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="19.png.jpeg" alt="Evidencia 22">
+            <img src="19.png" alt="Evidencia 22">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="20.png.jpeg" alt="Evidencia 23">
+            <img src="20.png" alt="Evidencia 23">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="21.png.jpeg" alt="Evidencia 24">
+            <img src="21.png" alt="Evidencia 24">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="22.png.jpeg" alt="Evidencia 25">
+            <img src="22.png" alt="Evidencia 25">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="23.png.jpeg" alt="Evidencia 26">
+            <img src="23.png" alt="Evidencia 26">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="24.png.jpeg" alt="Evidencia 27">
+            <img src="24.png" alt="Evidencia 27">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="25.png.jpeg" alt="Evidencia 28">
+            <img src="25.png" alt="Evidencia 28">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="26.png.jpeg" alt="Evidencia 29">
+            <img src="26.png" alt="Evidencia 29">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="27.png.jpeg" alt="Evidencia 30">
+            <img src="27.png" alt="Evidencia 30">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="28.png.jpeg" alt="Evidencia 31">
+            <img src="28.png" alt="Evidencia 31">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="29.png.jpeg" alt="Evidencia 32">
+            <img src="29.png" alt="Evidencia 32">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="30.png.jpeg" alt="Evidencia 33">
+            <img src="30.png" alt="Evidencia 33">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="34.png.jpeg" alt="Evidencia 34">
+            <img src="31.png" alt="Evidencia 34">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="35.png.jpeg" alt="Evidencia 35">
+            <img src="32.png" alt="Evidencia 35">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="36.png.jpeg" alt="Evidencia 36">
+            <img src="33.png" alt="Evidencia 36">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="37.png.jpeg" alt="Evidencia 37">
+            <img src="34.png" alt="Evidencia 37">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="38.png.jpeg" alt="Evidencia 38">
+            <img src="35.png" alt="Evidencia 38">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="39.png.jpeg" alt="Evidencia 39">
+            <img src="36.png" alt="Evidencia 39">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
 
         <div class="card">
-            <img src="40.png.jpeg" alt="Evidencia 40">
+            <img src="37.png" alt="Evidencia 40">
             <h3>Sistemas de Respaldo</h3>
             <p class="subtitle">Almacenamiento</p>
         </div>
     </div> 
+</section>
+
+<!-- NUEVA SECCIÓN DE DOCUMENTOS AGREGADA -->
+<section id="documentos">
+    <h2 style="text-align:center">Documentación del Proyecto</h2>
+    <div class="cards">
+        <div class="card">
+            <a href="documento-final.docx" target="_blank">
+                <i class="fa-solid fa-file-word"></i>
+                <h3>Proyecto Final GRD2-53</h3>
+                <p class="subtitle">Normas APA 7ma Edición</p>
+            </a>
+        </div>
+        <div class="card">
+            <a href="direccionamiento.xlsx" target="_blank">
+                <i class="fa-solid fa-file-excel" style="color: #1e7e34;"></i>
+                <h3>Plan de Direccionamiento</h3>
+                <p class="subtitle">Esquema IPv4 / IPv6</p>
+            </a>
+        </div>
+        <div class="card">
+            <a href="manual-servidores.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h3>Manual de Servidores</h3>
+                <p class="subtitle">Debian 13 / Windows Server</p>
+            </a>
+        </div>
+    </div>
 </section>
 
 <section id="contacto">
