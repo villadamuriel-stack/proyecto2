@@ -307,7 +307,7 @@
             }
         }
 
-        /* --- CONFIGURACIÓN DE LA GALERÍA SOLICITADA POR TUS SUPERIORES --- */
+        /* --- CONFIGURACIÓN DE LA GALERÍA --- */
         #Drive .card {
             padding: 0 !important;
             overflow: hidden !important;
@@ -336,15 +336,19 @@
             padding: 0 10px !important;
         }
 
-        /* Estilo específico para la sección de Documentos */
-        #documentos .card i {
-            font-size: 60px;
-            color: #d32f2f; /* Color rojizo para PDFs/Word */
-            margin-top: 10px;
-        }
+        /* Estilos específicos y colores institucionales para la sección de Documentos */
         #documentos .card a {
             text-decoration: none;
             color: inherit;
+        }
+        #documentos .card i.fa-file-pdf {
+            color: #e53935; /* Rojo PDF */
+        }
+        #documentos .card i.fa-file-excel {
+            color: #1e7e34; /* Verde Excel */
+        }
+        #documentos .card i.fa-file-powerpoint {
+            color: #d84315; /* Naranja PowerPoint */
         }
     </style>
 </head>
@@ -599,7 +603,6 @@
     <h2 style="text-align:center">Galería de Evidencias</h2>
     
     <div class="cards">
-        <!-- 1 a 10 Originales -->
         <div class="card">
             <img src="1.png" alt="Evidencia 1">
             <h3>Data Center Core</h3>
@@ -690,7 +693,6 @@
             <p class="subtitle">Almacenamiento</p>
         </div>
 
-        <!-- 16 a 40 Restablecidos a .png nativo -->
         <div class="card">
             <img src="13.png" alt="Evidencia 16">
             <h3>Sistemas de Respaldo</h3>
@@ -843,31 +845,66 @@
     </div> 
 </section>
 
-<!-- NUEVA SECCIÓN DE DOCUMENTOS AGREGADA -->
 <section id="documentos">
     <h2 style="text-align:center">Documentación del Proyecto</h2>
     <div class="cards">
+        
         <div class="card">
-            <a href="documento-final.docx" target="_blank">
-                <i class="fa-solid fa-file-word"></i>
-                <h3>Proyecto Final GRD2-53</h3>
-                <p class="subtitle">Normas APA 7ma Edición</p>
+            <a href="tabla-ip.xlsx" target="_blank">
+                <i class="fa-solid fa-file-excel"></i>
+                <h3>Tabla IP</h3>
+                <p class="subtitle">Esquema de Direccionamiento (Excel)</p>
             </a>
         </div>
+
         <div class="card">
-            <a href="Tabla IP V2.pdf" target="_blank">
-                <i class="fa-solid fa-file-excel" style="color: #1e7e34;"></i>
-                <h3>Plan de Direccionamiento</h3>
-                <p class="subtitle">Esquema IPv4 / IPv6</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="manual-servidores.pdf" target="_blank">
+            <a href="enfoque-proyecto.pdf" target="_blank">
                 <i class="fa-solid fa-file-pdf"></i>
-                <h3>Manual de Servidores</h3>
-                <p class="subtitle">Debian 13 / Windows Server</p>
+                <h3>Enfoque del Proyecto</h3>
+                <p class="subtitle">Metodología y Alcance (PDF)</p>
             </a>
         </div>
+
+        <div class="card">
+            <a href="documento-linux.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h3>Documento Linux</h3>
+                <p class="subtitle">Servidores Open Source (PDF)</p>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="documento-windows.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h3>Documento Windows</h3>
+                <p class="subtitle">Windows Server Infraestructura (PDF)</p>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="documento-cisco.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h3>Documento Cisco</h3>
+                <p class="subtitle">Networking y Enrutamiento (PDF)</p>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="documento-completo.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h3>Documento Completo</h3>
+                <p class="subtitle">Informe Final Integrado (PDF)</p>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="presentacion.pptx" target="_blank">
+                <i class="fa-solid fa-file-powerpoint"></i>
+                <h3>Presentación</h3>
+                <p class="subtitle">Sustentación del Proyecto (PPTX)</p>
+            </a>
+        </div>
+
     </div>
 </section>
 
