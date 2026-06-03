@@ -24,17 +24,16 @@
             --border-radius-lg: 18px;
         }
 
-        /* Reseteo general */
+        /* Reseteo general con tipografía original nativa */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: sans-serif;
         }
 
         body {
             background-color: var(--bg-light);
-            /* Patrón de fondo sutil para romper la monotonía del color plano */
             background-image: radial-gradient(#39A900 0.5px, transparent 0.5px), radial-gradient(#39A900 0.5px, #f4fdf6 0.5px);
             background-size: 40px 40px;
             background-position: 0 0, 20px 20px;
@@ -116,7 +115,7 @@
             display: block;
         }
 
-        /* Títulos de sección de alto impacto */
+        /* Títulos de sección */
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -182,7 +181,7 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
-        /* Contenedores de Tarjetas Estándar */
+        /* Contenedores de Tarjetas */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -206,20 +205,20 @@
             border-color: rgba(57, 169, 0, 0.2);
         }
 
-        /* --- 🛠️ CORRECCIÓN DE FILA IMPECABLE PARA DOCENTES --- */
+        /* Fila de Docentes Organizada */
         .row-docentes {
             display: flex !important;
             flex-direction: row !important;
-            flex-wrap: nowrap !important; /* Deniega saltos de línea */
+            flex-wrap: nowrap !important;
             justify-content: space-between !important;
             gap: 20px !important;
             width: 100% !important;
         }
 
         .row-docentes .card {
-            flex: 1 !important; /* Distribución perfectamente equitativa */
-            min-width: 0 !important; 
-            padding: 30px 15px !important; 
+            flex: 1 !important;
+            min-width: 0 !important;
+            padding: 30px 15px !important;
         }
 
         .card img {
@@ -251,7 +250,7 @@
             font-weight: 500;
         }
 
-        /* Secciones Institucionales: Proyecto */
+        /* Proyecto */
         .project-card {
             cursor: default !important;
             background: rgba(255, 255, 255, 0.95);
@@ -457,6 +456,15 @@
             color: var(--text-muted) !important;
             padding: 0 15px !important;
         }
+
+        /* Estilos de Documentos */
+        #documentos .card a {
+            text-decoration: none;
+            color: inherit;
+        }
+        #documentos .card i.fa-file-pdf { color: #e53935; }
+        #documentos .card i.fa-file-excel { color: #1e7e34; }
+        #documentos .card i.fa-file-powerpoint { color: #d84315; }
     </style>
 </head>
 <body>
@@ -546,33 +554,34 @@
     </div>
 </section>
 
+<!-- SECCIÓN DOCENTES CON SUS DESCRIPCIONES COMPLETAS ORIGINALES RESTAURADAS -->
 <section id="docentes">
     <h2 class="section-title"><span>Plantel Docente</span></h2>
     <div class="row-docentes">
         <div class="card" onclick="toggleAccordion(this)">
             <img src="W.png" alt="William Santamaría">
-            <h3>William Giovanni Santamaria</h3>
+            <h3>William Giovanni Santamaria Riaño</h3>
             <p>Instructor de Windows</p>
             <div class="accordion">
-                <p>Líder estratégico encargado de supervisar la implementación de servicios en entornos Windows Server corporativos.</p>
+                <p>Líder estratégico encargado de supervisar la implementación de servicios de infraestructura en entornos Windows Server. Coordina el despliegue de roles críticos como Directorio Activo, servicios de escritorio remoto y políticas de almacenamiento, asegurando la integridad y disponibilidad de los recursos corporativos del proyecto.</p>
             </div>
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
             <img src="profeA.png" alt="Juan Agredo">
-            <h3>Juan Pablo Agredo</h3>
+            <h3>Juan Pablo Agredo Castaño</h3>
             <p>Instructor de Linux</p>
             <div class="accordion">
-                <p>Líder técnico encargado de supervisar la implementación, servicios críticos y estabilidad de servidores Open Source.</p>
+                <p>Líder técnico encargado de supervisar la implementación y estabilidad de los servidores Open Source. Coordina la configuración de servicios críticos como correo, impresión y autenticación, asegurando el alto rendimiento y la correcta integración de todas las plataformas Linux dentro del proyecto.</p>
             </div>
         </div>
 
         <div class="card" onclick="toggleAccordion(this)">
             <img src="profem.png" alt="Diego Mapallo">
-            <h3>Diego Fernando Rodriguez</h3>
+            <h3>Diego Fernando Rodriguez Mapallo</h3>
             <p>Instructor de Cisco</p>
             <div class="accordion">
-                <p>Arquitecto de red responsable de dirigir la configuración de routing, switching avanzado y direccionamiento global.</p>
+                <p>Arquitecto de red responsable de dirigir la configuración de la infraestructura de networking. Supervisa la implementación de protocolos de enrutamiento avanzado, seguridad perimetral, alta disponibilidad y servicios de telefonía IP, garantizando una conectividad robusta y eficiente entre todos los nodos de la red.</p>
             </div>
         </div>
 
@@ -581,7 +590,7 @@
             <h3>Gustavo Adolfo Diaz</h3>
             <p>Instructor de Especialidad</p>
             <div class="accordion">
-                <p>Profesional experto en TI. Encargado de la formación en redes avanzadas, scripts de automatización e infraestructura analítica.</p>
+                <p>Profesional experto en tecnologías de la información y conectividad. Responsable de la formación técnica y práctica en la administración de redes Cisco, desarrollo y automatización de scripts con Python, y la implementación y configuración de sistemas de Telefonía IP en entornos de pruebas analíticas.</p>
             </div>
         </div>
     </div>
